@@ -9,7 +9,7 @@ Dex Company uses progressive context loading. Do not load the whole repository b
 Bootstrap loads only the canonical startup documents defined by `BOOTSTRAP.md`. Task-specific material is loaded only after a concrete task exists.
 
 ## Task classification
-Classify the request by the work that must be done, not by provider/model name. Examples include requirements, workflow/agent design, QA, design quality, developer handoff, research, and governance.
+Classify the request by the work that must be done, not by provider/model name. Examples include requirements, workflow/agent design, schedule/milestone planning, QA, design quality, developer handoff, research, and governance.
 
 ## Minimum context rule
 Load only material that can change the current decision, execution, or validation. Do not preload unrelated skills or historical records.
