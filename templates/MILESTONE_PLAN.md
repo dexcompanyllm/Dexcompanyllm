@@ -10,16 +10,20 @@ Status: draft awaiting approval
 - Assumptions:
 - External cadence(s):
 
-## Milestones
-| ID | Milestone outcome | Date / window | Applies to | Evidence label | Source + source date | Owner | Approver | Decision/review venue | Prerequisites + lead time | Dependencies / downstream waiter | Communication channel | Conditional? / condition | PASS criteria | Status |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+## Core milestones
+| ID | Milestone outcome | Date / window | Evidence label | Source + source date | Approver / decision venue | PASS criteria |
+|---|---|---|---|---|---|---|
+
+## Milestone controls
+| ID | Fact type / accountable authority | Applies to | Owner | Prerequisites + lead time | Dependencies / downstream waiter | Communication channel | Conditional? / condition / replan trigger | Status |
+|---|---|---|---|---|---|---|---|---|
 
 ## RAID
 | Type | Item | Schedule impact | Owner | Review / resolution date | Status |
 |---|---|---|---|---|---|
 
 ## Source conflicts
-| Field / milestone | Higher-priority source + date | Other source + date | Current handling |
+| Field / milestone | Authoritative source + date | Conflicting source + date | Current handling |
 |---|---|---|---|
 
 ## Load / cadence review
@@ -36,3 +40,4 @@ For every changed schedule field, record source re-check and affected dependency
 - Plan state: draft awaiting approval
 - Owner decision:
 - Approval evidence:
+- Merge check: after approval evidence exists, update draft status wording to the approved canonical status before merge.
