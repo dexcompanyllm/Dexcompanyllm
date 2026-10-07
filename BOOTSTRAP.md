@@ -19,7 +19,7 @@ Bootstrap is not reset, delete, reinstall, repository recreation, or data initia
 1. Access the repository and identify the current `main` commit when possible.
 2. Read `AI_INSTRUCTIONS.md` → `AGENTS.md` → `README.md`.
 3. Classify relevant capabilities as verified / declared / unavailable. Do not perform mutating, sending, purchasing, deleting, deploying, or permission-changing actions merely to verify a capability.
-4. Do not load `skills/`, `playbooks/`, or `templates/` during Bootstrap unless a concrete task already requires them.
+4. Do not load `skills/`, `playbooks/`, or `templates/` during Bootstrap unless a concrete task already requires them. When a task exists, follow `playbooks/CONTEXT_ROUTING.md`: classify the task, identify required capabilities, and load only references that can materially affect execution or validation.
 5. Confirm that required canonical references named by the loaded documents are resolvable. Missing required references are reported explicitly; do not replace them with chat memory or assumptions.
 6. Do not modify the repository. Produce the Ready report only.
 
