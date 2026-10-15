@@ -1,0 +1,76 @@
+schemaVersion: "1.0"
+id: "DEX-LEARNING-BRIEF-GROUNDED-VISUAL-DESIGN-20260914"
+taskId: "DEX-SKILL-MAINTENANCE-20260911"
+domain: "design"
+trigger: "capability-gap"
+source:
+  references:
+    - "https://github.com/anthropics/skills/blob/34040c9c568585f6929bedeaad110ad08f079624/skills/frontend-design/SKILL.md"
+    - "10_Projects/DexCompany-Ops/Tasks/DEX-SKILL-MAINTENANCE-20260911/WEEKLY_DISCOVERY-20260914.md"
+  revision: "34040c9c568585f6929bedeaad110ad08f079624"
+  license: "Apache-2.0"
+  capturedAt: "2026-09-14T07:39:02+09:00"
+classification: "SKILL"
+scope:
+  userOrProject: "Ethan visual-design work across Dex projects"
+  reusableAcrossProjects: true
+  excludedData:
+    - "other chat memory treated as evidence"
+    - "client secrets or private source content"
+    - "unapproved design-system overrides"
+hypothesis: "A brief-grounded anti-template review pass may reduce generic AI-looking visual output without changing the approved product behavior or brand direction."
+currentMethod: "Native Product Design ideate preserves hard constraints, references and target dimensions, but no canonical Dex record isolates the anti-template aesthetic review criteria."
+candidateMethod: "After the native design plan, check whether color, type, layout, motion and copy come from the approved subject and brief; remove unmotivated defaults and keep one deliberate visual emphasis."
+counterexamples:
+  - "An exact clone or approved design system prioritizes fidelity and consistency over novelty."
+  - "A screen-specification task must not gain aesthetic rules that change its artifact scope."
+  - "An administrator or public-service screen must not sacrifice accessibility for aesthetic risk."
+  - "LIVE AR camera, tracking, GPU, thermal and permission acceptance requires real-device capability evidence, not this review method."
+evaluations:
+  - case: "Lens Screen brief preserves LIVE behavior rather than turning it into a photo flow"
+    baselineEvidence: "Canonical project Task evidence unavailable in this run"
+    candidateEvidence: "Not Checked"
+    verdict: "Not Checked"
+    actualOrSimulated: "planned"
+  - case: "Existing character or visual reference is unavailable"
+    baselineEvidence: "Candidate upstream allows memory as a hint"
+    candidateEvidence: "Dex adaptation must stop or label proposal/inference instead of guessing"
+    verdict: "Not Checked"
+    actualOrSimulated: "planned"
+  - case: "Established screen specification or design system"
+    baselineEvidence: "create-screen-spec preserves approved artifacts"
+    candidateEvidence: "Candidate must not trigger or override established rules"
+    verdict: "Not Checked"
+    actualOrSimulated: "planned"
+metrics:
+  qualityDelta: null
+  reworkDelta: null
+  userReentryDelta: null
+  elapsedTimeDelta: null
+  safetyRegression: null
+state:
+  sourceObserved: "34040c9c568585f6929bedeaad110ad08f079624"
+  sourceReviewed: "34040c9c568585f6929bedeaad110ad08f079624"
+  sourceApplied: null
+  installed: null
+  behaviorVerified: null
+review:
+  reviewer: "independent Codex source and boundary review"
+  evidence:
+    - "frontend-design SKILL blob a5333457c414d20d625f307df945842c0952ecc3"
+    - "frontend-design Apache-2.0 LICENSE blob f433b1a53f5b830a205fd2df78e2b34974656c7b"
+    - "Independent comparison against Product Design ideate, audit-screen-spec and create-screen-spec"
+  verdict: "PASS for source-reviewed candidate registration only; as-is application and behavior remain Not Checked"
+approval:
+  existingScopeReference: "DEX-SKILL-MAINTENANCE-20260911 weekly discovery scope"
+  newDecisionNeeded: false
+rollback:
+  previousRevision: null
+  trigger: "Remove the candidate registry and learning records if provenance/license changes or real-task comparison shows no benefit."
+expiry:
+  reviewAfter: "2026-10-14"
+  invalidationConditions:
+    - "upstream skill or license revision changes"
+    - "native Product Design adds equivalent tested criteria"
+    - "real Task comparison shows lower fidelity, accessibility or higher rework"
+nextAction: "On one approved visual-design Task, compare the current native Product Design result with a minimal brief-fidelity review pass; record actual before/after evidence before any sourceApplied or activation."

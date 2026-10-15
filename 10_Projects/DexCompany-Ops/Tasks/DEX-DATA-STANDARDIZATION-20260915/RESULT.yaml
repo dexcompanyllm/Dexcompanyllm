@@ -1,0 +1,194 @@
+{
+  "schemaVersion": "2.0",
+  "task": {
+    "id": "DEX-DATA-STANDARDIZATION-20260915",
+    "finalStatus": "completed",
+    "completedAt": "2026-09-15T10:34:16Z"
+  },
+  "execution": {
+    "provider": "openai",
+    "surface": "chatgpt-work",
+    "worker": "current-session",
+    "model": null,
+    "reasoningEffort": null,
+    "authenticationMode": "current-session-and-connected-github",
+    "paidApiUsed": false,
+    "extraUsageUsed": false,
+    "availabilityClass": null,
+    "host": null,
+    "checkpointStartedFrom": "b3a24f4922bde287895c993189df28ae0a4877a7",
+    "branch": "data/standardize-normalize-20260915",
+    "commits": [
+      "08760c9899e4446f9971334d4bb230a5cc6573c4",
+      "d3ead6d76100e0829f80333e06cc4cec550a71a4",
+      "e4b97b15f559a313dbcec1d86cede298f106c21a",
+      "060bbfb51e3f07a9a4b7cb79a2233456f108d9d8"
+    ]
+  },
+  "summary": {
+    "outcome": "PR #185를 에던의 명시 승인과 독립 검수 PASS 후 main에 병합했어요. 참조 검사의 실제 파일 확인 누락을 보완했고, 18개 테스트와 병합 main의 기존 원문 보존·catalog 검사가 모두 통과했어요. 이 Task의 1차 참조·검사 기반 정리는 완료했어요. 기존 Task 변환·지식 메타데이터·복사된 지침의 전체 정규화는 후속 작업으로 남아요.",
+    "changes": [
+      "공통 데이터 표준·필드 사전과 논리 모델",
+      "프로젝트 4개 및 기준정보 10개의 참조 catalog",
+      "상태값 복제를 제거한 생성 프로젝트 목록",
+      "지식 작업 절차의 운영 가이드 단일 참조",
+      "읽기 전용 참조 검사·실패 시나리오 및 기존 CI 확장",
+      "729파일 metadata 진단·후속 migration 기록"
+    ],
+    "unchangedByDesign": [
+      "8개 운영 문서와 보존 원문",
+      "기존 Task ID·원문·메타데이터·Skill registry",
+      "Runtime·설치·배포·자동화·권한·비용",
+      "열린 PR와 미검증 데이터"
+    ]
+  },
+  "artifacts": {
+    "files": [
+      "20_Codex_Handoff/DATA_STANDARD.md",
+      "20_Codex_Handoff/DATA_CATALOG.json",
+      "20_Codex_Handoff/PROJECT_INDEX.md",
+      "10_Projects/DexCompany-Ops/DATA_MODEL.md",
+      "20_Codex_Handoff/LLM_WIKI_VERIFICATION_SCHEMA.md",
+      "scripts/data-catalog.mjs",
+      "scripts/data-catalog.test.mjs",
+      ".github/workflows/ops-state.yml",
+      "10_Projects/DexCompany-Ops/Tasks/DEX-DATA-STANDARDIZATION-20260915/TASK.yaml",
+      "10_Projects/DexCompany-Ops/Tasks/DEX-DATA-STANDARDIZATION-20260915/AUDIT.json",
+      "10_Projects/DexCompany-Ops/Tasks/DEX-DATA-STANDARDIZATION-20260915/EVIDENCE.md",
+      "10_Projects/DexCompany-Ops/Tasks/DEX-DATA-STANDARDIZATION-20260915/RESULT.yaml"
+    ],
+    "links": [],
+    "pullRequests": [
+      "https://github.com/ethanhee890-commits/dex-company-wiki/pull/185"
+    ]
+  },
+  "validation": {
+    "status": "PASS",
+    "checks": [
+      {
+        "name": "main tree inventory",
+        "result": "PASS",
+        "evidence": "10_Projects/DexCompany-Ops/Tasks/DEX-DATA-STANDARDIZATION-20260915/AUDIT.json"
+      },
+      {
+        "name": "selected-source semantic comparison",
+        "result": "PASS",
+        "evidence": "10_Projects/DexCompany-Ops/Tasks/DEX-DATA-STANDARDIZATION-20260915/EVIDENCE.md"
+      },
+      {
+        "name": "new and existing unit tests",
+        "result": "PASS",
+        "evidence": "node --test scripts/ops-state.test.mjs scripts/data-catalog.test.mjs; 18/18 (기존 ops-state 8 + catalog 10)",
+        "subjectCommit": "e4b97b15f559a313dbcec1d86cede298f106c21a"
+      },
+      {
+        "name": "GitHub tree reference integrity",
+        "result": "PASS",
+        "evidence": "Pinned full tree plus new catalog path"
+      },
+      {
+        "name": "UTF-8, internal links, JSON/YAML, secret-pattern, changed-scope and inventory arithmetic",
+        "result": "PASS",
+        "evidence": "12 changed files; 25 internal links; 729 files and 14 duplicate groups recalculated; no detected secret pattern or whitespace warning"
+      },
+      {
+        "name": "Remote exact-head workflow and original eight-document byte preservation",
+        "result": "PASS",
+        "evidence": "https://github.com/ethanhee890-commits/dex-company-wiki/actions/runs/34957525349",
+        "subjectCommit": "08760c9899e4446f9971334d4bb230a5cc6573c4"
+      },
+      {
+        "name": "Remote readback and tree scope",
+        "result": "PASS",
+        "evidence": "12/12 changed file contents match; 12 expected changed paths; 0 removed files; all unrelated blob SHAs unchanged",
+        "subjectCommit": "08760c9899e4446f9971334d4bb230a5cc6573c4"
+      },
+      {
+        "name": "Review-discovered working-tree reference regression",
+        "result": "PASS",
+        "evidence": "Before fix: two real Git fixture tests failed because missing references returned PASS. After fix: existing 16 plus 2 regressions pass (18/18).",
+        "scope": "보완 head에서 두 실제 Git fixture를 독립 재실행해 PASS를 확인했어요.",
+        "subjectCommit": "e4b97b15f559a313dbcec1d86cede298f106c21a"
+      },
+      {
+        "name": "Independent read-only model review",
+        "result": "PASS",
+        "subjectCommit": "e4b97b15f559a313dbcec1d86cede298f106c21a",
+        "evidence": "EVIDENCE.md: 독립 검수에서 729/14/61/47 집계 재계산, 원문·변경 범위·회귀 테스트와 CI를 대조했어요. 남은 병합 차단 사항은 없어요."
+      },
+      {
+        "name": "Remediation exact-head PR CI",
+        "result": "PASS",
+        "subjectCommit": "e4b97b15f559a313dbcec1d86cede298f106c21a",
+        "evidence": "https://github.com/ethanhee890-commits/dex-company-wiki/actions/runs/34958424830"
+      },
+      {
+        "name": "Owner-approved PR #185 merge",
+        "result": "PASS",
+        "subjectCommit": "060bbfb51e3f07a9a4b7cb79a2233456f108d9d8",
+        "evidence": "https://github.com/ethanhee890-commits/dex-company-wiki/pull/185"
+      },
+      {
+        "name": "Merged main tests, original-byte preservation and catalog references",
+        "result": "PASS",
+        "subjectCommit": "060bbfb51e3f07a9a4b7cb79a2233456f108d9d8",
+        "evidence": "https://github.com/ethanhee890-commits/dex-company-wiki/actions/runs/34958630653"
+      }
+    ],
+    "failures": [],
+    "notChecked": [
+      "All-document semantic audit and legacy field migration",
+      "Runtime database/installed plugins/physical devices"
+    ]
+  },
+  "acceptanceCriteria": {
+    "met": [
+      "고정 main의 전체 metadata 집계",
+      "표준·원본/참조 분리·기존 ID와 이력 보존",
+      "4개 프로젝트 및 참조 integrity와 실패 시나리오",
+      "18개 unit tests PASS (기존 8 + catalog 10)",
+      "12개 파일 형식·25개 링크·secret-pattern·diff 범위와 집계 검증",
+      "PR #185 구현 head CI·원문 보존·12/12 원격 readback PASS",
+      "독립 검수 PASS·에던 main 병합 승인·PR #185 병합 완료",
+      "병합 main의 unit tests·기존 8개 운영 문서 원문 보존·catalog 참조 검사 PASS"
+    ],
+    "unmet": []
+  },
+  "risk": {
+    "remaining": [
+      "새 프로젝트를 추가하는 후속 PR에는 catalog/index 갱신이 필요해요. 기존 PR #12가 해당해요.",
+      "참조 검사가 내용 최신성이나 실제 capability를 증명하지 않아요."
+    ],
+    "securityNotes": [
+      "비밀값·권한·새 실행 경로를 추가하지 않아요."
+    ],
+    "costNotes": [
+      "paid API/fallback와 추가 유료 사용 없음"
+    ],
+    "platformLimitations": [
+      "현재 작업은 GitHub 연결과 로컬 검사 범위이며 승인 host 검증을 대신하지 않아요."
+    ]
+  },
+  "handoff": {
+    "nextAction": "1차 정리는 완료했어요. 후속 정규화는 이 Task의 EVIDENCE.md에 기록한 기존 Task 호환 mapping·지식 메타데이터·복사된 지침·프로젝트 실행 정보 범위에서 이어가요. 원문/reader/rollback을 확인하고 구체적 변경을 검수 가능한 diff로 준비해요. PR #185를 다시 병합하거나 에던에게 같은 요청을 재입력하게 하지 않아요.",
+    "nextProvider": "auto",
+    "resumeCheckpoint": "10_Projects/DexCompany-Ops/Tasks/DEX-DATA-STANDARDIZATION-20260915/EVIDENCE.md",
+    "doNotRepeat": [
+      "같은 사용자 요청 다시 입력받지 않기",
+      "기존 데이터 일괄 삭제·이름 변경·상태 승격 금지"
+    ]
+  },
+  "approval": {
+    "requested": [],
+    "granted": [
+      "데이터 정리 요청에 따른 분석·1차 변경·검증·task branch 및 PR 준비",
+      "에던의 명시 승인: PR #185 검수 후 병합 승인 (2026-09-15 이 대화)"
+    ],
+    "pending": []
+  },
+  "audit": {
+    "taskPacketCommit": null,
+    "resultPacketCommit": null,
+    "eventLog": "10_Projects/DexCompany-Ops/Tasks/DEX-DATA-STANDARDIZATION-20260915/EVIDENCE.md"
+  }
+}

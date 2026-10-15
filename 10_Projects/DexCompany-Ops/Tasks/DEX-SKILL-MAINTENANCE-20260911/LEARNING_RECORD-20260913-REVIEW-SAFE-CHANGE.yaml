@@ -1,0 +1,85 @@
+schemaVersion: "1.0"
+id: "DEX-LEARNING-REVIEW-SAFE-CHANGE-20260913"
+taskId: "DEX-SKILL-MAINTENANCE-20260911"
+domain: "engineering-quality"
+trigger: "capability-gap"
+source:
+  references:
+    - "https://github.com/addyosmani/agent-skills/tree/6ca0cd7db39b41b1c37e26d335c507ee92382c6d"
+    - "https://github.com/ethanhee890-commits/ethanhee890-commits-dex-company-runtime/pull/200"
+  revision: "6ca0cd7db39b41b1c37e26d335c507ee92382c6d; selected blobs unchanged at be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39"
+  license: "MIT"
+  capturedAt: "2026-09-13T08:24:52+09:00"
+classification: "SKILL"
+scope:
+  userOrProject: "DexCompany-Ops"
+  reusableAcrossProjects: true
+  excludedData:
+    - "secrets"
+    - "private customer data"
+    - "host installation claims"
+hypothesis: "A bounded review method can reduce missed regression, CI, migration and observability risks without authorizing deploy or activation."
+currentMethod: "Use project-specific review policy and ad hoc checklists."
+candidateMethod: "Apply the inactive review-safe-change checklist only to bounded change review; preserve explicit deploy, migration and evidence gates."
+counterexamples:
+  - "Routine factual conversation must not trigger the method."
+  - "Green CI alone must not authorize deployment."
+  - "A Git revert plan must not be treated as database rollback."
+evaluations:
+  - case: "Scoped refactor preserves synchronous error behavior"
+    baselineEvidence: "Candidate instructions before independent review"
+    candidateEvidence: "Independent forward scenario"
+    verdict: "PASS"
+    actualOrSimulated: "simulated"
+  - case: "Routine factual chat does not trigger"
+    baselineEvidence: "Candidate routing boundary"
+    candidateEvidence: "Independent negative scenario"
+    verdict: "PASS"
+    actualOrSimulated: "simulated"
+  - case: "Green CI does not imply deploy approval"
+    baselineEvidence: "Candidate CI boundary"
+    candidateEvidence: "Independent forward scenario"
+    verdict: "PASS"
+    actualOrSimulated: "simulated"
+  - case: "Migration separates Git and database recovery"
+    baselineEvidence: "Candidate migration boundary"
+    candidateEvidence: "Independent forward scenario"
+    verdict: "PASS"
+    actualOrSimulated: "simulated"
+  - case: "CI review adds bounded checks beyond use-dex-company"
+    baselineEvidence: "Current Dex continuity policy"
+    candidateEvidence: "Independent comparative scenario"
+    verdict: "PASS"
+    actualOrSimulated: "simulated"
+metrics:
+  qualityDelta: null
+  reworkDelta: null
+  userReentryDelta: null
+  elapsedTimeDelta: null
+  safetyRegression: false
+state:
+  sourceObserved: "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39"
+  sourceReviewed: "6ca0cd7db39b41b1c37e26d335c507ee92382c6d; selected blobs unchanged at observed head"
+  sourceApplied: "b8c5348a58262ffa041176b25b356a95e6edaacb"
+  installed: null
+  behaviorVerified: "supplemental simulated 5/5 PASS; declared 16 cases and actual Task reuse Not Checked"
+review:
+  reviewer: "independent Codex review"
+  evidence:
+    - "Runtime PR #200 provenance/license/security review"
+    - "Runtime validation run 34725877816: PASS"
+    - "Independent supplemental forward review: 5/5 PASS"
+  verdict: "PASS for inactive source archival only; active use Not Checked"
+approval:
+  existingScopeReference: "DEX-SKILL-MAINTENANCE-20260911 low-risk existing Skill improvement scope"
+  newDecisionNeeded: false
+rollback:
+  previousRevision: null
+  trigger: "Remove the three inactive candidate files and this registry entry if provenance, license, or safety evidence is invalidated."
+expiry:
+  reviewAfter: "2026-10-13"
+  invalidationConditions:
+    - "selected upstream blob changes"
+    - "active packaging or permission scope proposed"
+    - "real Task reuse contradicts the simulated result"
+nextAction: "Reuse on one real bounded engineering Task and record before/after evidence; keep install, discovery, invocation and active packaging Not Checked until a separate approved PR."

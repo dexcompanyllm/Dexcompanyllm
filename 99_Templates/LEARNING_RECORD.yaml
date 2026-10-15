@@ -1,0 +1,46 @@
+schemaVersion: "1.0"
+id: ""
+taskId: ""
+domain: ""
+trigger: "" # outcome | user-correction | recurring-failure | source-update | capability-gap
+source:
+  references: []
+  revision: null
+  license: null
+  capturedAt: null
+classification: "" # FACT | POLICY | SKILL | CAPABILITY
+scope:
+  userOrProject: ""
+  reusableAcrossProjects: false
+  excludedData: []
+hypothesis: ""
+currentMethod: ""
+candidateMethod: ""
+counterexamples: []
+evaluations: [] # case, baselineEvidence, candidateEvidence, verdict, actualOrSimulated
+metrics:
+  qualityDelta: null
+  reworkDelta: null
+  userReentryDelta: null
+  elapsedTimeDelta: null
+  safetyRegression: null
+state:
+  sourceObserved: null
+  sourceReviewed: null
+  sourceApplied: null
+  installed: null
+  behaviorVerified: null
+review:
+  reviewer: null
+  evidence: []
+  verdict: "Not Checked"
+approval:
+  existingScopeReference: null
+  newDecisionNeeded: false
+rollback:
+  previousRevision: null
+  trigger: ""
+expiry:
+  reviewAfter: null
+  invalidationConditions: []
+nextAction: ""

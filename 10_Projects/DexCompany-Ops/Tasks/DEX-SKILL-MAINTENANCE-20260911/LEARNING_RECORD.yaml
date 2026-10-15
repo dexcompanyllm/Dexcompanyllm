@@ -1,0 +1,70 @@
+schemaVersion: "1.0"
+id: "DEX-LEARNING-DESIGN-QUALITY-20260918"
+taskId: "DEX-SKILL-MAINTENANCE-20260911"
+domain: "product-design"
+trigger: "capability-gap"
+source:
+  references:
+    - "https://github.com/ethanhee890-commits/ethanhee890-commits-dex-company-runtime/pull/235"
+    - "https://github.com/ethanhee890-commits/dex-company-wiki/pull/192"
+  revision: "dd461ac508f950bd3757db48795655e623e31b21"
+  license: "UNLICENSED/private; dex-owned original candidate"
+  capturedAt: "2026-09-20T07:31:41+09:00"
+classification: "validated-source"
+scope:
+  included:
+    - "project-specific design direction contract"
+    - "read-only design evidence completeness validation"
+    - "conditional routing from use-dex-company"
+  excluded:
+    - "automatic installation or activation"
+    - "product deployment or visual redesign"
+    - "permission, provider, billing or automation expansion"
+hypothesis: "A project-specific direction contract plus fail-closed evidence completeness checks may reduce repeated padding, text overflow and generic-concept defects without imposing one visual style."
+currentMethod: "Canonical Runtime source 1.3.0 includes design-quality, but approved-host installation, fresh-session discovery and real behavior are not evidenced."
+candidateMethod: "Install the canonical 1.3.0 package only on an approved host, verify fresh-session positive/negative invocation, then measure the same P1-P3 fixtures before and after."
+counterexamples:
+  - "A structurally complete evidence package can still contain poor design or false claims."
+  - "A shared token example can damage an established product if treated as a mandatory theme."
+  - "Source-level tests do not prove installation, discovery, rendering, accessibility or device behavior."
+evaluations:
+  before:
+    status: "Not Checked"
+    evidence: "No same-fixture product baseline was available."
+  sourceReview:
+    status: "PASS"
+    evidence: "Runtime PR #235 merged as dd461ac after independent review, full CI and Ubuntu/macOS/Windows validator tests; exact merge-SHA main CI passed."
+  after:
+    status: "Not Checked"
+    evidence: "Source is merged and registry-canonical, but approved-host installation, fresh-session invocation, rendering/WCAG and measured effect remain Not Checked/Not Measured."
+metrics:
+  qualityDelta: "Not Checked"
+  reworkDelta: "Not Checked"
+  userReentryDelta: "Not Checked"
+  elapsedTimeDelta: "Not Checked"
+  safetyRegression: "Not Checked"
+state:
+  sourceObserved: "dd461ac508f950bd3757db48795655e623e31b21"
+  sourceReviewed: "dd461ac508f950bd3757db48795655e623e31b21"
+  sourceApplied: "dd461ac508f950bd3757db48795655e623e31b21"
+  installed: null
+  behaviorVerified: "Not Checked"
+review:
+  reviewer: "existing independent PR review plus current-main integration review and CI"
+  evidence: "Runtime merge dd461ac, exact merge-SHA main CI #958, three-OS portability run, and Wiki PR #192 canonical registry publication"
+  verdict: "source merge and canonical registry publication PASS; install, fresh-session invocation, rendering and measured behavior remain separate"
+approval:
+  sourceMerge: "granted and completed"
+  installation: "granted for an approved host but not executed here"
+  integrationUpdateGranted: true
+  sourceMergeGranted: true
+  granted: true
+rollback:
+  beforeMerge: "Historical gate completed; source merge dd461ac is now canonical."
+  afterApprovedMerge: "If source rollback is justified, revert exact Runtime merge dd461ac through review; if only installation or pilot fails, stop or roll back the approved-host installation without reverting unrelated main changes."
+expiry:
+  recheckWhen:
+    - "Runtime main or active writer changes"
+    - "user grants source-merge approval"
+    - "approved host evidence becomes available"
+nextAction: "On an approved Codex host, continue Task DEX-DESIGN-QUALITY-20260917: verify installed revision 1.3.0/dd461ac, fresh-session positive and negative invocation, then run the P1-P3 rendered/WCAG/rework/time/user-burden pilot. Keep unobserved outcomes Not Checked/Not Measured."

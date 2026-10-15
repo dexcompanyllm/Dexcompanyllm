@@ -1,0 +1,88 @@
+schemaVersion: "2.0"
+
+task:
+  id: "DC-YYYYMMDD-001"
+  title: ""
+  createdAt: "YYYY-MM-DDTHH:mm:ss+09:00"
+  createdBy: "Ethan"
+  status: "queued"
+  priority: "normal"
+
+project:
+  name: ""
+  configPath: "10_Projects/<ProjectName>/PROJECT_CONFIG.md"
+  repository: ""
+  baseRef: "main"
+
+request:
+  source: "dexcompany.app"
+  clientPlatform: "auto"
+  objective: ""
+  originalText: |-
+    
+
+routing:
+  role: "auto"
+  requiredCapabilities: []
+  preferredProvider: "auto"
+  prohibitedProviders: []
+  selectedProvider: null
+  selectedSurface: null
+  selectedWorker: null
+  selectedModel: null
+  reasoningEffort: null
+  availabilityClass: null
+  platformCapabilitySnapshot: {}
+
+costPolicy:
+  mode: "subscription-only"
+  paidApiAllowed: false
+  automaticPaidFallback: false
+  extraUsageAllowed: false
+  budgetLimit: 0
+
+inputs:
+  files: []
+  urls: []
+  issues: []
+  pullRequests: []
+  sourceNotes: []
+
+constraints:
+  scope: []
+  preserve: []
+  exclude: []
+  deadline: null
+  dataPolicy: "default"
+
+acceptanceCriteria: []
+
+execution:
+  mode: "prepare-changes"
+  riskLevel: "low"
+  approvalPolicy: "policy-based"
+  branch: null
+  idempotencyKey: ""
+  checkpoint: "intake"
+  hostRequirement: "auto"
+  startedAt: null
+  updatedAt: null
+
+artifacts:
+  expected: []
+  produced: []
+
+validation:
+  required: []
+  status: "not-checked"
+
+handoff:
+  previousProvider: null
+  failedAttempts: []
+  resumeFrom: null
+  doNotRepeat: []
+
+audit:
+  taskPacketCommit: null
+  issue: null
+  lastEventAt: null
