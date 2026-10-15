@@ -7,17 +7,13 @@
 | 프로젝트 | 설정 | 현재 상태 | 작업 인계 |
 |---|---|---|---|
 | DexCompany-Ops | [설정](../10_Projects/DexCompany-Ops/PROJECT_CONFIG.md) | [현재 상태](../10_Projects/DexCompany-Ops/CURRENT.md) | [이어가기](../10_Projects/DexCompany-Ops/SESSION_HANDOFF.md) |
-| JiguRadio | [설정](../10_Projects/JiguRadio/PROJECT_CONFIG.md) | [현재 상태](../10_Projects/JiguRadio/CURRENT.md) | [이어가기](../10_Projects/JiguRadio/SESSION_HANDOFF.md) |
-| JiguRadio-Renewal | [설정](../10_Projects/JiguRadio-Renewal/PROJECT_CONFIG.md) | [현재 상태](../10_Projects/JiguRadio-Renewal/CURRENT.md) | [이어가기](../10_Projects/JiguRadio-Renewal/SESSION_HANDOFF.md) |
-| MixedWorkspace-Recovery | [설정](../10_Projects/MixedWorkspace-Recovery/PROJECT_CONFIG.md) | [현재 상태](../10_Projects/MixedWorkspace-Recovery/CURRENT.md) | [이어가기](../10_Projects/MixedWorkspace-Recovery/SESSION_HANDOFF.md) |
-| LensME | [설정](../10_Projects/LensME/PROJECT_CONFIG.md) | [현재 상태](../10_Projects/LensME/CURRENT.md) | [이어가기](../10_Projects/LensME/SESSION_HANDOFF.md) |
 
 ## 등록 기준
 
 - 프로젝트 소유자와 지식 문서 위치를 확인한 뒤 등록해요. 코드가 필요한 프로젝트는 실제 코드 저장소 또는 승인된 실행 위치도 확인해요.
 - 특정 PC의 경로는 실행 환경 참고정보예요. 경로의 현재 존재 여부와 실행 권한은 사용할 때 다시 확인해요.
 - 개인정보 가능성이 있는 CareerOps 작업대는 자동 등록하지 않아요.
-- MixedWorkspace-Recovery에서 분리되는 제품은 별도 저장소가 확정된 뒤 새 프로젝트로 등록해요.
+- 별도 제품은 별도 저장소가 확정된 뒤 새 프로젝트로 등록해요.
 - 열린 PR에만 존재하는 프로젝트는 승인 main 등록 프로젝트에 포함하지 않아요.
 
 ## 보관 기준

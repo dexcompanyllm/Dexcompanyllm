@@ -37,7 +37,7 @@ tags:
 - 통합 직후 기준 source 183개, 정리 wiki 7개, 재사용 query 1개가 있었습니다.
 - 이번 압축으로 capability map 1개와 이 query 1개를 추가해 wiki 8개, query 2개가 됩니다.
 - lint 실패와 경고는 0이지만, Bias Check 보완 큐 66개는 실제 재검증이 끝난 것이 아니라 confidence를 낮춰 보수적으로 표시한 상태입니다.
-- DexCompany-Ops, JiguRadio, JiguRadio-Renewal, MixedWorkspace-Recovery의 프로젝트 기억 폴더를 등록했습니다.
+- DexCompany-Ops의 운영 기억 폴더를 등록했습니다. 개별 프로젝트 등록 기록은 공개 사본에서 삭제했어요 (2026-10-16).
 - 새 map도 `explored: false`로 시작합니다. 보유 지식과 실제 프로젝트 검증은 동일하지 않습니다.
 
 ## 학습된 역량 → 가능한 작업
@@ -55,7 +55,7 @@ tags:
 
 ### 제품·개발
 
-> JiguRadio에 즐겨찾기 기능을 추가하고, lint/build/browser QA를 통과시킨 뒤 Obsidian 인수인계까지 남겨줘.
+> 대상 앱에 즐겨찾기 기능을 추가하고, lint/build/browser QA를 통과시킨 뒤 Obsidian 인수인계까지 남겨줘.
 
 덱스는 연결된 실제 저장소를 확인하고, 요구사항·구현·테스트·QA·handoff를 같은 프로젝트 기억에 남깁니다.
 

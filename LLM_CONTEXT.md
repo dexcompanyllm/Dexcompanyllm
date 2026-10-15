@@ -47,9 +47,6 @@ Canonical 문서는 역할과 capability를 정의한다. 현재 선호 모델, 
 ## 현재 확인된 프로젝트
 
 - `DexCompany-Ops`
-- `JiguRadio`
-- `JiguRadio-Renewal`
-- `MixedWorkspace-Recovery`
 
 ## 세션 복구 순서
 

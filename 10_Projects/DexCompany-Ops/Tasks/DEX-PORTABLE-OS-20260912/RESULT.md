@@ -1,5 +1,7 @@
 # Dex 전체 개선 결과와 인계
 
+> Public-copy redaction (2026-10-16): individual project records were removed at the owner’s request. Remaining historical results apply only to their original revision and scope.
+
 핵심 개선 PR 4개를 검수하고 의존관계에 맞춰 main에 병합했어요. 이번 소스 반영과 자동 검증은 완료했으며 실제 기기·설치·선택 host 검증은 남아 있어요.
 
 - Task: `DEX-PORTABLE-OS-20260912`
@@ -47,7 +49,6 @@ Windows 검증은 Windows 실행 경로에 적용해요. iPhone으로 접속해 
 - Wiki #176의 초기 SHA·CI는 역사 증거이고 최신 기준은 MERGE_REVIEW.md예요.
 - Runtime #97의 1.2.0은 설치·Windows/SVG·정확한 rollback Gate가 남은 별도 후보예요. 다음 통합에서 이번 1.1.1 변경을 보존해요.
 - Runtime #200 + Wiki #178의 legacy 후보와 16개 미실행 행동 검사는 별도예요. 일괄 설치하지 않아요.
-- Wiki #16의 옛 운영 상태를 최신 문서 위에 병합하지 않고 PR·증거를 보존해요. #12의 SaveTheChildren 작업은 이번 범위 밖으로 유지해요.
 - 새 coordination key를 실제 실행자에 적용하기 전 모든 broker/consumer를 중지·drain하고 기존 lease/receipt와 owner를 확인해요. 혼합 버전 실행과 불명확한 lease 삭제는 금지예요.
 - 회사 AI에 private Wiki/Runtime이나 개인·고객 자료 전체를 기본 제공하지 않아요. 허용된 최소 자료만 사용해요.
 - 기존 자동화의 schedule/enabled·요금·권한을 이번 병합 작업에서 바꾸지 않았어요.

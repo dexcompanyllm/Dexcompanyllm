@@ -20,7 +20,7 @@ disputed: false
 - Sponsored Agents are being tested with select advertisers in the United States.
 - Advertisers can use natural-language prompts in ChatGPT Work through the Ads Manager plugin to create, update, and analyze campaigns.
 - ChatGPT Ads integrations are available for HubSpot and US-based Shopify merchants; Shopify availability is scheduled to expand internationally where ChatGPT Ads are available from 2026-09-23.
-- This announcement does not establish availability for the user's ChatGPT Pro account, Korea, Dex Company, or EarthRadio. Those remain `unknown` unless separately verified.
+- This announcement does not establish availability for the user's ChatGPT Pro account, Korea, or Dex Company. Those remain `unknown` unless separately verified.
 
 Source: https://openai.com/index/reimagining-advertising-with-ai/
 

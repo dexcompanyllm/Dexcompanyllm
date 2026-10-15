@@ -16,7 +16,6 @@ OpenAI는 2026-09-10부터 Pro $200(Pro 20X) 신규 가입·업그레이드를 �
 | 영역 | 확인한 완료 기준선 | 이어갈 항목 |
 |---|---|---|
 | Dex Plus 프로필 | Runtime #240 / `438c578307c3af77fa9be05fab8fb84879453ed3`; Wiki #206 | 실제 Plus 계정의 승인 host에서 model 선택·구독 E2E |
-| 지구라디오 Plus 소스 | Sites source `ad832edc62da1e7a564ffe7b02fdef875936cfcd` | 운영 smoke와 새 검사 결과; 저장 version과 실제 deployment를 구분 |
 | 디자인 품질 | Runtime #235 / `dd461ac508f950bd3757db48795655e623e31b21`; Wiki #192 | 기존 `DEX-DESIGN-QUALITY-20260917`의 승인 host 설치·새 세션·P1~P3 실측 |
 | 다른 AI 인계 | 기존 GitHub Task Bus와 handoff schema를 재사용 | receiving provider에서 동일 Task 수신·재개 receipt |
 

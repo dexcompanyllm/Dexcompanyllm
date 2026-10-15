@@ -27,7 +27,7 @@ counterexamples:
   - "An administrator or public-service screen must not sacrifice accessibility for aesthetic risk."
   - "LIVE AR camera, tracking, GPU, thermal and permission acceptance requires real-device capability evidence, not this review method."
 evaluations:
-  - case: "Lens Screen brief preserves LIVE behavior rather than turning it into a photo flow"
+  - case: "A realtime-input brief preserves streaming behavior instead of substituting a static-image flow"
     baselineEvidence: "Canonical project Task evidence unavailable in this run"
     candidateEvidence: "Not Checked"
     verdict: "Not Checked"

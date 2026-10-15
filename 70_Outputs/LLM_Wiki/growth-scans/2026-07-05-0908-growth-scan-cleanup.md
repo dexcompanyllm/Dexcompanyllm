@@ -42,7 +42,6 @@ Total cleaned: about `775.66MB`.
 
 | Target | Reason |
 |---|---|
-| `D:\CodexProjects\codex setup\drive_uploads` | 한진관광 프로젝트 원본/분할 자료로 보이며 Growth Scan 임시물로 판단하지 않음 |
 | LLM Wiki `sources/`, `wiki/`, `queries/`, `audit/` | 재사용 지식과 검증 기록 |
 | `70_Outputs\LLM_Wiki\growth-scans` reports | Growth Scan 판단 근거와 운영 이력 |
 | archived Codex sessions | 삭제가 아니라 보존형 archive 상태. 필요 시 unarchive 가능 |

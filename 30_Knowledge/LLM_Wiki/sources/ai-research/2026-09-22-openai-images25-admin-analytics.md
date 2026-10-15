@@ -25,7 +25,7 @@ disputed: false
 
 ## Dex interpretation
 
-- Images 2.5 is a useful capability candidate for EarthRadio creative assets and product/UI concept work, but it does not authorize automatic model switching, API usage, paid fallback, or asset publication.
+- Images 2.5 is a useful capability candidate for creative assets and product/UI concept work, but it does not authorize automatic model switching, API usage, paid fallback, or asset publication.
 - Admin analytics is relevant to Dex governance only when a supported Work or Codex workspace is actually available. It must not be treated as evidence about Ethan's personal ChatGPT Pro account.
 - External product analytics and generated images are non-canonical inputs. Dex canonical truth remains the approved GitHub `main`; generated assets and external analytics require explicit provenance before they are promoted into canonical knowledge or project state.
 

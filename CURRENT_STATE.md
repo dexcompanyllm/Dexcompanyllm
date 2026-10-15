@@ -348,17 +348,7 @@ OpenAI Codex 0.152.0 stable includes several previously tracked post-0.151 chang
 - Status: active
 - Operational status: v2-codex-0151-recommended-tracked-disabled
 
-### JiguRadio
-
-- Status: production-maintenance
-
-### JiguRadio-Renewal
-
-- Status: active-experiment
-
-### MixedWorkspace-Recovery
-
-- Status: triage-only
+> Public copy: individual project status records were removed at the owner’s request on 2026-10-16. This historical section is redacted rather than byte-identical to the private source.
 
 ## Validation status
 
