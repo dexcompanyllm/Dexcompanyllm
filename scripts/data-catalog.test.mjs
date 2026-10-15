@@ -58,7 +58,7 @@ test('duplicate project IDs and a wrong project folder fail', () => {
   duplicate.projects.push({ ...duplicate.projects[0] });
   assert.throws(() => validateCatalog(duplicate, paths), /Duplicate project/);
   const mismatched = copy();
-  mismatched.projects[0].configPath = mismatched.projects[1].configPath;
+  mismatched.projects[0].configPath = '10_Projects/OtherProject/PROJECT_CONFIG.md';
   assert.throws(() => validateCatalog(mismatched, paths), /differ/);
 });
 

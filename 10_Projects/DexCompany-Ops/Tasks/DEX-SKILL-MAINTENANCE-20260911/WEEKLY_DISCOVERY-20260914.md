@@ -10,7 +10,7 @@ Task: `DEX-SKILL-MAINTENANCE-20260911`. 기준: 승인 Wiki main, Runtime main `
 | 2 | [OpenAI playwright-interactive](https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/playwright-interactive/SKILL.md) @ `49f948faa9258a0c61caceaf225e179651397431` | CAPABILITY/SKILL | 반복되는 웹 기능·시각 회귀를 같은 브라우저 세션에서 검증 | Apache-2.0; experimental `js_repl`, `danger-full-access`, npm/browser 설치 요구 |
 | 3 | OpenAI-curated Product Design `ideate@0.1.55` | CAPABILITY | 디자인 brief·참조·치수 보존과 이미지 방향 탐색 | Proprietary; 현재 환경에서 이미 제공되는 native capability |
 | 4 | OpenAI-curated Data Analytics `analyze-data-quality@1.0.8` | CAPABILITY | GA4·KPI·리서치 데이터의 freshness/grain/누락·중복 검사 | Proprietary; 현재 제공되는 native capability와 connector 의존 |
-| 5 | Lens Screen LIVE-AR 실기기 검증 | CAPABILITY | 사진이 아닌 LIVE 카메라, 눈 추적, GPU/열/권한을 Galaxy 기기에서 증명 | 공식 source/revision/license와 승인 Android host 증거 없음 |
+| 5 | LIVE-AR 실기기 검증 | CAPABILITY | 사진이 아닌 LIVE 카메라, 눈 추적, GPU/열/권한을 Galaxy 기기에서 증명 | 공식 source/revision/license와 승인 Android host 증거 없음 |
 
 ## 필터 결과
 
@@ -20,7 +20,7 @@ Task: `DEX-SKILL-MAINTENANCE-20260911`. 기준: 승인 Wiki main, Runtime main `
 | playwright-interactive | QA inventory·기능/시각 분리·viewport 검사는 유용 | **FAIL for Dex apply**: 실험 기능, sandbox 해제, dependency/browser 설치가 현재 금지 조건과 충돌 | 제외. 안정 sandbox와 승인 격리 host가 생길 때 capability Gate로 재검토 |
 | Product Design ideate | 관련성 높지만 이미 native 제공, 새 Dex Skill은 중복 | Proprietary라 소스 흡수 부적합 | 복제·등록 제외; 가능한 환경에서 native 사용 |
 | analyze-data-quality | 사업·리서치에는 유용하나 현재 우선 gap보다 낮고 이미 native 제공 | Proprietary·connector 의존 | 복제·등록 제외 |
-| LIVE-AR device validation | Lens Screen에서 중요도 높음 | source·license·실기기 증거 Not Checked | Skill로 만들지 않고 프로젝트 capability/acceptance gap으로 유지 |
+| LIVE-AR device validation | 실시간 입력을 다룰 때 실기기 검증 필요 | source·license·실기기 증거 Not Checked | Skill로 만들지 않고 프로젝트 capability/acceptance gap으로 유지 |
 
 ## 상세 검토 — 2개
 

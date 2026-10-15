@@ -1,5 +1,7 @@
 # 같은 작업 이어가기
 
+> Public-copy redaction (2026-10-16): individual project records were removed at the owner’s request. Remaining historical results apply only to their original revision and scope.
+
 Task: `DEX-PLUS-READINESS-20260919`; child design Task: `DEX-DESIGN-QUALITY-20260917`.
 
 ## 시작
@@ -10,8 +12,6 @@ Task: `DEX-PLUS-READINESS-20260919`; child design Task: `DEX-DESIGN-QUALITY-2026
 
 - Dex Plus Runtime #240, Wiki #206: 재구현하지 않아요.
 - Design #235, Wiki #192 실제 source 병합/CI: 재병합하지 않아요.
-- Earth Radio Android 1.0.1 시작 수정/MBC/다운로드 연결/Plus context: 완료 코드 보존.
-- Maintenance smoke: source main `843b0e6d18e490bbe276b526330fecd186f55365`; Runtime migration guide #241.
 
 ## Pro $200 플랜 변경 전 확인
 
@@ -19,11 +19,9 @@ Task: `DEX-PLUS-READINESS-20260919`; child design Task: `DEX-DESIGN-QUALITY-2026
 
 ## 다음 실행 — capability가 있을 때만
 
-1. **네트워크 가능한 지구라디오 checkout:** 현재 remote source와 작업 scope를 확인하고 `npm run maintenance:smoke -- --json` 한 번 실행해요. 프로그램/곡 계약을 조사할 때만 `--metadata`를 추가해요. 실패 원문이나 인증정보를 보고서에 넣지 않아요. 이 환경에서 실패한 HTTP 접근을 같은 방식으로 반복하지 않아요.
-2. **승인 Plus host:** 현재 Runtime의 실제 `codex:status`, 구독 인증, `account/read` planType과 authenticated model catalog를 확인해요. routine/standard 읽기 전용 업무 각각 한 건의 effective profile/model/effort를 기록해요. 실제 Plus가 아니면 미확인으로 남겨요.
-3. **승인 디자인 host:** 원래 `DEX-DESIGN-QUALITY-20260917/PILOT_PLAN.md`와 최신 `docs/DEX_PLUGIN_MIGRATION.md`를 사용해 설치·새 세션 discovery/호출을 확인해요. actual CLI help·resolved source·rollback을 확인한 뒤 P1~P3 A/B를 진행해요. 임의 새 화면으로 효과를 대신 측정하지 않아요.
-4. **Claude/Gemini:** 승인된 해당 계정의 GitHub/기존 인계 경로로 같은 Task를 읽고 마지막 안전 checkpoint에서 재개해요. 실제 receiver receipt 전에는 수신 완료로 기록하지 않아요. 회사 계정이면 개인 repository 공유 범위와 workspace 정책을 먼저 확인해요.
-5. **Android 1.0.1:** 설치·실제 소리·화면 잠금·알림 조작·통화·Bluetooth·배터리를 실제 연결 기기에서 기록해요. 이전 Preview 결과를 승계하지 않아요.
+1. **승인 Plus host:** 현재 Runtime의 실제 `codex:status`, 구독 인증, `account/read` planType과 authenticated model catalog를 확인해요. routine/standard 읽기 전용 업무 각각 한 건의 effective profile/model/effort를 기록해요. 실제 Plus가 아니면 미확인으로 남겨요.
+2. **승인 디자인 host:** 원래 `DEX-DESIGN-QUALITY-20260917/PILOT_PLAN.md`와 최신 `docs/DEX_PLUGIN_MIGRATION.md`를 사용해 설치·새 세션 discovery/호출을 확인해요. actual CLI help·resolved source·rollback을 확인한 뒤 P1~P3 A/B를 진행해요. 임의 새 화면으로 효과를 대신 측정하지 않아요.
+3. **Claude/Gemini:** 승인된 해당 계정의 GitHub/기존 인계 경로로 같은 Task를 읽고 마지막 안전 checkpoint에서 재개해요. 실제 receiver receipt 전에는 수신 완료로 기록하지 않아요. 회사 계정이면 개인 repository 공유 범위와 workspace 정책을 먼저 확인해요.
 
 ## 종료와 rollback
 

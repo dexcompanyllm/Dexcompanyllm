@@ -28,7 +28,7 @@
 ### 2026-07-19 - 최소 활성 프로젝트 네 개 등록
 
 - Context: `10_Projects/`가 비어 있어 세션 간 인수인계가 작동하지 않았습니다.
-- Decision: DexCompany-Ops, JiguRadio, JiguRadio-Renewal, MixedWorkspace-Recovery를 우선 등록합니다.
+- Decision: DexCompany-Ops를 등록합니다. 개별 프로젝트 등록 기록은 소유자 요청으로 공개 사본에서 삭제했어요 (2026-10-16).
 - Alternatives: 모든 최근 폴더를 자동 등록하는 방법을 검토했습니다.
 - Consequences: 개인정보 가능성이 있는 CareerOps와 낮은 우선순위 저장소는 자동 등록하지 않습니다.
 

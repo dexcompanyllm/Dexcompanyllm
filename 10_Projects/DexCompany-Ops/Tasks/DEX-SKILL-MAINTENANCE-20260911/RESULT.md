@@ -84,7 +84,7 @@ review_screen_skill run은 6개 source diff와 세 요청의 판단을 독립 �
 - PASS: codex-ppt `32221ef8654c87505c846c9a48bb5dbe2a744a67`는 README의 community QR만, career-ops `308b0b1b77c75acfb10767d59ec13c2051a1caa0`는 서명 문서만 바뀌었어요. 두 MIT 라이선스와 Skill/script/dependency/permission 상태는 변하지 않았고 기존 보류 판단을 유지해요.
 - PASS: 첫 월요일 신규 발굴을 수행해 후보 5개를 기록하고 2개만 상세 검토했어요. 독립 검수 후 Anthropic frontend-design `34040c9c568585f6929bedeaad110ad08f079624`의 brief-grounded/anti-template 방법만 source-reviewed 후보 1개로 등록했어요.
 - FAIL for apply: OpenAI playwright-interactive `49f948faa9258a0c61caceaf225e179651397431`는 유용한 QA 방법이 있지만 experimental js_repl, danger-full-access, npm/browser 설치 요구가 현재 정책과 충돌해 제외했어요.
-- Not Applied/Not Checked: 새 Runtime Skill, 설치, 활성화, 실제 디자인 결과 비교, LIVE-AR 실기기 동작은 수행하지 않았어요. Lens Screen의 LIVE 카메라/추적은 Skill이 아니라 승인 Android host capability 검증 항목으로 유지해요.
+- Not Applied/Not Checked: 새 Runtime Skill, 설치, 활성화, 실제 디자인 결과 비교, LIVE-AR 실기기 동작은 수행하지 않았어요. LIVE 카메라/추적은 Skill이 아니라 승인 Android host capability 검증 항목으로 유지해요.
 - PASS: PR97 설명을 현재 Runtime main 1.1.1과 비병합 상태에 맞게 고쳤어요. PR은 draft 그대로이며 기존 head CI는 과거 head 증거일 뿐 현재 main 통합·Windows 설치·새 세션·XML/렌더·정확한 ref rollback은 Not Checked예요.
 - PASS: Windows 미검증은 PR97 Windows 실행 경로에만 적용했고 다른 공통 읽기·검토를 차단하지 않았어요. 실제 설치 revision/hash는 계속 null / Not Checked예요.
 

@@ -1,5 +1,7 @@
 # 전체 개선 PR 검수·병합 기록
 
+> Public-copy redaction (2026-10-16): individual project records were removed at the owner’s request. Remaining historical results apply only to their original revision and scope.
+
 - Task: DEX-PORTABLE-OS-20260912
 - 검수일: 2026-09-12
 - 현재 상태: 핵심 개선 PR 4개 main 병합과 병합 후 CI 완료. 실제 기기·설치·새 worker 활성화는 미검증이에요.
@@ -59,7 +61,6 @@ api/index.mjs → Gateway는 TaskRunStore의 getTaskStatus/getTaskResult만 사�
 - Runtime #97: Windows/SVG/설치/정확한 rollback Gate가 있는 별도 1.2.0 후보예요. 이번 공통 Skill 1.1.1을 향후 통합 시 보존해요.
 - Runtime #200 + Wiki #178: legacy 후보·라이선스·미실행 16개 행동 검사는 별도예요. 일괄 설치·활성화하지 않아요.
 - Wiki #16: PR #27 open·#28 미구현이라는 옛 상태를 최신 상태 문서 위에 병합하지 않아요. 기존 PR·branch와 증거는 보존해요.
-- Wiki #12: SaveTheChildren 고유 내용은 이번 범위 밖이에요. 기존 사용자 작업을 유지해요.
 - #28 OPEN, #34/#35 blocked, 실제 Galaxy/iPhone/Windows/Mac 접근·host·설치 검사는 Not Checked를 유지해요. Windows 고유 미검증을 다른 검증된 경로에 확대하지 않아요.
 
 ## 다음 작업과 복원

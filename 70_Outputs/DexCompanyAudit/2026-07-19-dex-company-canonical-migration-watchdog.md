@@ -10,7 +10,7 @@ canonical Vault 통합, 운영 경로 전환, 프로젝트 기억 등록, LLM Wi
 
 - `D:\OneDrive\ObsidianVault` canonical 통합
 - legacy Vault 비파괴 병합과 advisory deprecation
-- DexCompany-Ops, JiguRadio, JiguRadio-Renewal, MixedWorkspace-Recovery 등록
+- DexCompany-Ops 등록 (개별 프로젝트 기록은 2026-10-16 소유자 요청으로 공개 사본에서 삭제)
 - role/quality/imagegen 규칙과 프로젝트 템플릿 동기화
 - capability map/query 생성과 LLM Wiki index 압축
 - setup, context collector, health check, automation preflight hardening

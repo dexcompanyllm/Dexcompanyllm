@@ -26,10 +26,7 @@
     "scripts": 2
   },
   "registeredProjects": [
-    "DexCompany-Ops",
-    "JiguRadio",
-    "JiguRadio-Renewal",
-    "MixedWorkspace-Recovery"
+    "DexCompany-Ops"
   ],
   "byteIdenticalGroups": [
     {
@@ -48,10 +45,7 @@
       "groupId": "DUP-02",
       "blobSha": "b65434590ec4a9d529c70e428234ea70a1f3c345",
       "paths": [
-        "10_Projects/DexCompany-Ops/CONTEXT_MAP.md",
-        "10_Projects/JiguRadio-Renewal/CONTEXT_MAP.md",
-        "10_Projects/JiguRadio/CONTEXT_MAP.md",
-        "10_Projects/MixedWorkspace-Recovery/CONTEXT_MAP.md"
+        "10_Projects/DexCompany-Ops/CONTEXT_MAP.md"
       ],
       "disposition": "preserve-pending-semantic-review"
     },
@@ -59,10 +53,7 @@
       "groupId": "DUP-03",
       "blobSha": "8d47e21cf9db5c96e89e468115df51722c753ed5",
       "paths": [
-        "10_Projects/DexCompany-Ops/DATA_MODEL.md",
-        "10_Projects/JiguRadio-Renewal/DATA_MODEL.md",
-        "10_Projects/JiguRadio/DATA_MODEL.md",
-        "10_Projects/MixedWorkspace-Recovery/DATA_MODEL.md"
+        "10_Projects/DexCompany-Ops/DATA_MODEL.md"
       ],
       "disposition": "preserve-pending-semantic-review"
     },
@@ -70,10 +61,7 @@
       "groupId": "DUP-04",
       "blobSha": "6ec6b3b4ef9634c188a70e39ae8cd0a6ae9644f2",
       "paths": [
-        "10_Projects/DexCompany-Ops/PRD.md",
-        "10_Projects/JiguRadio-Renewal/PRD.md",
-        "10_Projects/JiguRadio/PRD.md",
-        "10_Projects/MixedWorkspace-Recovery/PRD.md"
+        "10_Projects/DexCompany-Ops/PRD.md"
       ],
       "disposition": "preserve-pending-semantic-review"
     },
@@ -82,9 +70,6 @@
       "blobSha": "b57181f8ea214b985f082564fb565eaf8a5dae0a",
       "paths": [
         "10_Projects/DexCompany-Ops/ROLE_SKILL_INSTALL_AUDIT.md",
-        "10_Projects/JiguRadio-Renewal/ROLE_SKILL_INSTALL_AUDIT.md",
-        "10_Projects/JiguRadio/ROLE_SKILL_INSTALL_AUDIT.md",
-        "10_Projects/MixedWorkspace-Recovery/ROLE_SKILL_INSTALL_AUDIT.md",
         "20_Codex_Handoff/ROLE_SKILL_INSTALL_AUDIT.md"
       ],
       "disposition": "preserve-pending-semantic-review"
@@ -111,10 +96,7 @@
       "groupId": "DUP-08",
       "blobSha": "1f4cc9fc4e4817f3d3451662665f0db9cf4adad3",
       "paths": [
-        "10_Projects/DexCompany-Ops/SCREEN_FLOW.md",
-        "10_Projects/JiguRadio-Renewal/SCREEN_FLOW.md",
-        "10_Projects/JiguRadio/SCREEN_FLOW.md",
-        "10_Projects/MixedWorkspace-Recovery/SCREEN_FLOW.md"
+        "10_Projects/DexCompany-Ops/SCREEN_FLOW.md"
       ],
       "disposition": "preserve-pending-semantic-review"
     },
@@ -122,10 +104,7 @@
       "groupId": "DUP-09",
       "blobSha": "43b1925e0389e5ee158ab343946b8351aea678a3",
       "paths": [
-        "10_Projects/DexCompany-Ops/SPEC.md",
-        "10_Projects/JiguRadio-Renewal/SPEC.md",
-        "10_Projects/JiguRadio/SPEC.md",
-        "10_Projects/MixedWorkspace-Recovery/SPEC.md"
+        "10_Projects/DexCompany-Ops/SPEC.md"
       ],
       "disposition": "preserve-pending-semantic-review"
     },
@@ -135,12 +114,6 @@
       "paths": [
         "10_Projects/DexCompany-Ops/assets/.gitkeep",
         "10_Projects/DexCompany-Ops/sources/.gitkeep",
-        "10_Projects/JiguRadio-Renewal/assets/.gitkeep",
-        "10_Projects/JiguRadio-Renewal/sources/.gitkeep",
-        "10_Projects/JiguRadio/assets/.gitkeep",
-        "10_Projects/JiguRadio/sources/.gitkeep",
-        "10_Projects/MixedWorkspace-Recovery/assets/.gitkeep",
-        "10_Projects/MixedWorkspace-Recovery/sources/.gitkeep",
         "2026-08-10.md",
         "30_Knowledge/LLM_Wiki/sources/books/.gitkeep",
         "30_Knowledge/LLM_Wiki/sources/papers/.gitkeep",
@@ -149,45 +122,6 @@
         "70_Outputs/LLM_Wiki/graphify/.gitkeep",
         "70_Outputs/LLM_Wiki/markdown-formatter/.gitkeep",
         "90_Archive/.gitkeep"
-      ],
-      "disposition": "preserve-pending-semantic-review"
-    },
-    {
-      "groupId": "DUP-11",
-      "blobSha": "ea09eacd04c9cc6f4e69ccc1ed1f35f72cce1883",
-      "paths": [
-        "10_Projects/JiguRadio-Renewal/DEX_COMPANY_OVERVIEW.md",
-        "10_Projects/JiguRadio/DEX_COMPANY_OVERVIEW.md",
-        "10_Projects/MixedWorkspace-Recovery/DEX_COMPANY_OVERVIEW.md"
-      ],
-      "disposition": "preserve-pending-semantic-review"
-    },
-    {
-      "groupId": "DUP-12",
-      "blobSha": "6e5c33a805ca43730ebd165255749ce8a97ad6c3",
-      "paths": [
-        "10_Projects/JiguRadio-Renewal/ROLE_SKILL_ROUTING.md",
-        "10_Projects/JiguRadio/ROLE_SKILL_ROUTING.md",
-        "10_Projects/MixedWorkspace-Recovery/ROLE_SKILL_ROUTING.md"
-      ],
-      "disposition": "preserve-pending-semantic-review"
-    },
-    {
-      "groupId": "DUP-13",
-      "blobSha": "496898d305f53ac753a6c55bbcfab0035db459a2",
-      "paths": [
-        "10_Projects/JiguRadio-Renewal/ROLE_TOOL_SKILL_MATRIX.md",
-        "10_Projects/JiguRadio/ROLE_TOOL_SKILL_MATRIX.md",
-        "10_Projects/MixedWorkspace-Recovery/ROLE_TOOL_SKILL_MATRIX.md"
-      ],
-      "disposition": "preserve-pending-semantic-review"
-    },
-    {
-      "groupId": "DUP-14",
-      "blobSha": "7520fbade27af7aed3cdc30ef5443c6d6be9cc31",
-      "paths": [
-        "10_Projects/JiguRadio-Renewal/SOURCES.md",
-        "10_Projects/MixedWorkspace-Recovery/SOURCES.md"
       ],
       "disposition": "preserve-pending-semantic-review"
     }
@@ -219,17 +153,16 @@
       "form": "json-compatible-yaml"
     }
   ],
-  "knownOpenProjectCandidate": {
-    "projectId": "SaveTheChildren",
-    "pullRequest": 12,
-    "stateAtCheck": "open",
-    "registeredOnBaseMain": false
-  },
   "checks": {
     "completeTreeInventory": "PASS",
     "selectedSourceRead": "PASS",
     "allDocumentSemanticAudit": "Not Checked",
     "runtimeDatabaseSchema": "Not Checked",
     "installedPluginInventory": "Not Checked"
+  },
+  "publicCopyRedaction": {
+    "date": "2026-10-16",
+    "scope": "Individual project identifiers, paths and candidate records removed at owner request.",
+    "historicalCounts": "Original historical totals are retained; retained path lists are redacted subsets, not current-tree inventory."
   }
 }

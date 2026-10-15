@@ -4,22 +4,6 @@
     {
       "id": "DexCompany-Ops",
       "configPath": "10_Projects/DexCompany-Ops/PROJECT_CONFIG.md"
-    },
-    {
-      "id": "JiguRadio",
-      "configPath": "10_Projects/JiguRadio/PROJECT_CONFIG.md"
-    },
-    {
-      "id": "JiguRadio-Renewal",
-      "configPath": "10_Projects/JiguRadio-Renewal/PROJECT_CONFIG.md"
-    },
-    {
-      "id": "MixedWorkspace-Recovery",
-      "configPath": "10_Projects/MixedWorkspace-Recovery/PROJECT_CONFIG.md"
-    },
-    {
-      "id": "LensME",
-      "configPath": "10_Projects/LensME/PROJECT_CONFIG.md"
     }
   ],
   "authorities": [

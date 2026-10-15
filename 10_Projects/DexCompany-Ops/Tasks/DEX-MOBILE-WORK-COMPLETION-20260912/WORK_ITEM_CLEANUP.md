@@ -1,5 +1,7 @@
 # Dex 열린 작업·상태 정리표
 
+> Public-copy redaction (2026-10-16): individual project records were removed at the owner’s request. Remaining historical results apply only to their original revision and scope.
+
 > 아래 SHA와 분류는 초기 점검의 역사 기록이에요. 최신 main·CI·병합 처리와 미완료 항목은 [전체 개선 기록](../DEX-PORTABLE-OS-20260912/MERGE_REVIEW.md)이 대체해요. 이 표만으로 과거 PR을 병합하거나 오래된 snapshot으로 되돌리지 않아요.
 
 ## 확인 기준
@@ -32,7 +34,6 @@ CURRENT_STATE.md와 DexCompany-Ops의 PROJECT_CONFIG.md, CURRENT.md, SESSION_HAN
 |---|---|---|
 | 164 | stale/review-needed | late automation watch와 audit 미해결 문구가 현재 CI moderate 2 및 Runtime PR 194보다 오래됐어요. 고유 source만 비교하고 그대로 merge하지 않아요. |
 | 84 | superseded draft | PR 23 충돌·과거 PR 97 실패를 전제로 해요. PR 23은 merge, PR 97 최신 CI는 PASS이며 스킬 Task가 main에 반영됐어요. |
-| 12 | active unique content / rebase-needed | SaveTheChildren project profile은 고유해요. root CURRENT_STATE 충돌을 제거하고 Runtime PR 23 merge 상태로 갱신한 뒤 별도 검수해요. |
 | 16 | superseded | PR 27 open, Issue 28 unimplemented라는 과거 상태예요. 현 snapshot과 직접 충돌하므로 merge하지 않아요. |
 | 7 | concept retained / rewrite-needed | GitHub Native Bridge 개념은 유효하지만 모바일 plugin/MCP 가정이 현재 Issue 34와 달라요. 최신 surface 근거로 다시 작성해야 해요. |
 | 5 | superseded | Runtime PR 14와 137-test 시대의 handoff예요. 현재 상태 문서에 대체됐어요. |

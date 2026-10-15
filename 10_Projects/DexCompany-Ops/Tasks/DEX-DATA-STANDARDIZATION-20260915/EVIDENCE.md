@@ -1,5 +1,7 @@
 # 데이터 정리 진단과 실행 증거
 
+> Public-copy redaction (2026-10-16): individual project records were removed at the owner’s request. Remaining historical results apply only to their original revision and scope.
+
 - Task: DEX-DATA-STANDARDIZATION-20260915
 - 기준 main: `b3a24f4922bde287895c993189df28ae0a4877a7`
 - 기준 Git tree: `eece778fdf44bdb4c25de81804f2372193a03543`
@@ -40,7 +42,6 @@
 | DATA-06 | confirmed | 지식 schema가 created/dateCreated, updated/dateModified를 함께 요구 | alias 중복은 현행 호환 계약; 필드 삭제 없이 후속 mapping 계획 |
 | DATA-07 | confirmed | 같은 blob 14묶음·61파일·첫 파일 제외 47개 | 빈 파일/템플릿/복사된 role 문서 포함; 자동 삭제 0 |
 | DATA-08 | confirmed | OPS_SNAPSHOT은 09-12 plugin 1.1.1, registry는 09-15 source 1.1.2 | 다른 날짜·검증 범위의 관측으로 유지; 설치 PASS 또는 snapshot 최신화로 자동 전환하지 않음 |
-| DATA-09 | confirmed | SaveTheChildren는 열린 PR #12에 있고 기준 main의 등록 프로젝트에는 없음 | 후보로 추적; 이번 catalog에 승인 프로젝트처럼 추가하지 않음 |
 | DATA-10 | inference | 다른 프로젝트 config의 host 경로와 adapter 고정 설정에는 후속 검증이 필요 | 실제 저장소/host/capability 확인 전 추정값으로 덮어쓰지 않음 |
 
 `TASK.yaml`에 JSON 표기를 쓴 v2 기록은 YAML과 호환되는 표현이에요. 확장자와 표시 문법이 다르다는 이유만으로 손상으로 판정하지 않아요.
@@ -102,7 +103,6 @@
 - [지식 verification schema](https://github.com/ethanhee890-commits/dex-company-wiki/blob/b3a24f4922bde287895c993189df28ae0a4877a7/20_Codex_Handoff/LLM_WIKI_VERIFICATION_SCHEMA.md)
 - [Task v2](https://github.com/ethanhee890-commits/dex-company-wiki/blob/b3a24f4922bde287895c993189df28ae0a4877a7/99_Templates/TASK_PACKET.yaml)
 - [Skill 목록](https://github.com/ethanhee890-commits/dex-company-wiki/blob/b3a24f4922bde287895c993189df28ae0a4877a7/20_Codex_Handoff/DEX_SKILL_REGISTRY.json)
-- [SaveTheChildren PR #12](https://github.com/ethanhee890-commits/dex-company-wiki/pull/12)
 
 ## 최초 구현의 원격 검증 receipt (이력)
 
