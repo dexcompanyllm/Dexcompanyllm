@@ -1,0 +1,88 @@
+schemaVersion: "1.0"
+id: "DEX-LEARNING-ACTIONABLE-RECOVERY-20260915"
+taskId: "DEX-SKILL-MAINTENANCE-20260911"
+domain: "cross-domain operations"
+trigger: "user-correction"
+source:
+  references:
+    - "https://github.com/ethanhee890-commits/dex-company-wiki/commit/6e7aa11025b6fe826c97530867fa7d3f758ae174"
+    - "10_Projects/DexCompany-Ops/Tasks/DEX-ACTIONABLE-RECOVERY-20260915/RESULT.md"
+    - "https://github.com/ethanhee890-commits/ethanhee890-commits-dex-company-runtime/pull/218"
+  revision: "6e7aa11025b6fe826c97530867fa7d3f758ae174"
+  license: "Dex-owned private operating policy"
+  capturedAt: "2026-09-15T08:19:23+09:00"
+classification: "SKILL"
+scope:
+  userOrProject: "Dex Company common recovery and permission guidance"
+  reusableAcrossProjects: true
+  excludedData:
+    - "credentials and secret values"
+    - "customer or personal payloads"
+    - "unverified device-specific menus, buttons, paths, or commands"
+hypothesis: "Adding an actionable recovery contract will reduce repeated dead-end instructions and unnecessary user re-entry without broadening authority."
+currentMethod: "The common Skill separated evidence states and approval scope but did not explicitly require plain-language failure explanation, action-first recovery, exact permission wording, copy-ready verified commands, or a two-attempt limit."
+candidateMethod: "Explain the actual check and failure point, label confirmed/inference/unknown, complete safe in-scope actions first, request only exact missing authority, provide only verified complete commands, and switch routes after two identical failures."
+counterexamples:
+  - "A normal read-only status request must not trigger a recovery ceremony."
+  - "No approved Windows host must preserve the Task and only block that route."
+  - "A missing mobile menu must not be replaced with another invented menu."
+  - "Two failed install commands must not authorize a third attempt or installation."
+  - "Missing GitHub write authority must not be treated as permission to mutate."
+evaluations:
+  - case: "mobile menu mismatch"
+    baselineEvidence: "Risk of repeating an unavailable or invented UI path"
+    candidateEvidence: "Requires actual screen mismatch first and only a verified alternate route"
+    verdict: "PASS"
+    actualOrSimulated: "simulated"
+  - case: "GitHub write permission missing"
+    baselineEvidence: "Safe reads could be skipped while asking broadly for access"
+    candidateEvidence: "Completes safe reads, then names the minimum repository and branch permission"
+    verdict: "PASS"
+    actualOrSimulated: "simulated"
+  - case: "approved Windows host unavailable"
+    baselineEvidence: "Risk of asking Ethan to restate the task"
+    candidateEvidence: "Preserves objective, scope, criteria, evidence, rollback, and next command in the same Task"
+    verdict: "PASS"
+    actualOrSimulated: "simulated"
+  - case: "same install method fails twice"
+    baselineEvidence: "Risk of a third identical attempt"
+    candidateEvidence: "Requires an alternate route or blocker record after two attempts"
+    verdict: "PASS"
+    actualOrSimulated: "simulated"
+  - case: "ordinary read-only status summary"
+    baselineEvidence: "Recovery steps should remain dormant"
+    candidateEvidence: "Existing minimal-context flow remains unchanged"
+    verdict: "PASS"
+    actualOrSimulated: "simulated"
+metrics:
+  qualityDelta: null
+  reworkDelta: null
+  userReentryDelta: null
+  elapsedTimeDelta: null
+  safetyRegression: false
+state:
+  sourceObserved: "6e7aa11025b6fe826c97530867fa7d3f758ae174"
+  sourceReviewed: "6e7aa11025b6fe826c97530867fa7d3f758ae174"
+  sourceApplied: "112eee1a254c3415540e389ddc4cd66e0f334ee5"
+  installed: null
+  behaviorVerified: "Independent simulated forward review 5/5 PASS; actual approved-host fresh-session and real-task reuse Not Checked"
+review:
+  reviewer: "independent Codex forward reviewer"
+  evidence:
+    - "Runtime PR #218 changed exactly three files, 38 additions and 2 deletions"
+    - "Runtime validation run 34909040415 PASS on exact head 6f3369942128f0e369037916af4cbac0eebfa122"
+    - "No marketplace, dependency, script, credential, paid provider, permission expansion, or experimental feature change"
+  verdict: "PASS"
+approval:
+  existingScopeReference: "AI_CONTRACT.md; 20_Codex_Handoff/DEX_GROWTH_PROTOCOL.md; DEX-SKILL-MAINTENANCE-20260911"
+  newDecisionNeeded: false
+rollback:
+  previousRevision: "57f098055d632e4bd49110100a9f5c8eb8165b9f"
+  trigger: "Regression in task intake, overblocking of safe reads, invented commands, authority expansion, or failure of package tests"
+expiry:
+  reviewAfter: "2026-10-15"
+  invalidationConditions:
+    - "AI_CONTRACT actionable recovery policy changes"
+    - "use-dex-company recovery section changes"
+    - "plugin package version or Skill inventory changes without matching tests"
+nextAction: "On an approved host, install the exact main revision, start a fresh session, invoke the common Skill on a real failed route, and record re-entry/rework results."

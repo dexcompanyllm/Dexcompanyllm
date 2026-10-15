@@ -1,16 +1,83 @@
-# Dex Company — Provider-Neutral AI Operating Knowledge Base
+# Dex Company
 
-Dex Company는 특정 AI 회사·모델에 종속되지 않는 공통 업무 운영 기준(SSOT)입니다.
-
-현재와 미래의 AI, Agent, 모델, 실행기, 도구 및 자동화 시스템은 실제 capability가 확인되면 동일한 기준 아래 참여할 수 있습니다.
+Dex Company는 GitHub를 중심으로 여러 AI와 기기에서 같은 지식·상태·업무 흐름을 이어가는 개인 AI 업무 운영체계다.
 
 ## Source of Truth
-기본 브랜치 `main`의 현재 canonical 상태를 기준으로 합니다. 승인 여부는 실제 repository policy/review evidence로 확인될 때만 확정합니다. AI 대화 기억, 개별 서비스 메모리, 로컬 경로는 canonical source가 아닙니다.
 
-## Start
-새로운 AI/Agent/Runtime은 `BOOTSTRAP.md`를 따릅니다. Bootstrap은 Reset이 아니라 **SSOT 로드 + Capability 확인 + 작업 준비**입니다.
+GitHub `main`의 승인된 최신 상태가 단일 기준정보다.
 
-## Principles
-Provider-neutral · Evidence-first · Generate → Execute → Validate · Repeated Error → Validation Gate · Human Review · Least Context · Confidential-data boundary.
+```text
+PC / Tablet / Mobile
+        |
+        v
+ dexcompany.app PWA
+        |
+        v
+ Dex Orchestrator + MCP Gateway
+        |
+        +--> OpenAI adapter --> ChatGPT / Work / Codex
+        +--> Anthropic adapter --> Claude / Claude Code
+        +--> Future adapters
+        |
+        v
+ GitHub Task Bus + Project Repositories
+```
 
-Provider별 파일은 선택적 호환 adapter이며 canonical core의 범위를 제한하지 않습니다.
+## 공식 구성요소
+
+- `dex-company-wiki`: 지식·정책·프로젝트 상태·Task/Result Packet
+- `dex-company-runtime`: Orchestrator, PWA, MCP Gateway, provider adapter, worker
+- `dexcompany.app`: PC·태블릿·모바일 공통 제어 화면
+- GitHub Task Bus: Issue, branch, PR, checkpoint, result, evidence
+- ChatGPT MCP app와 Claude remote MCP connector
+- subscription-first local/remote workers
+- QA/Watchdog
+
+## Obsidian 상태
+
+Obsidian은 Dex Company의 공식 구성요소가 아니다. 기존 `.obsidian/`과 관련 문서는 마이그레이션 증거와 개인 호환을 위해 남을 수 있지만 정상 작동 조건, Source of Truth 또는 필수 편집기가 아니다.
+
+## AI 작업 시작 순서
+
+1. `AI_CONTRACT.md`
+2. 공급자 진입 파일: `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`
+3. `CURRENT_STATE.md`
+4. 대상 프로젝트의 `PROJECT_CONFIG.md`, `CURRENT.md`, `SESSION_HANDOFF.md`
+5. 현재 Task Packet과 관련 SPEC·DECISIONS·SOURCES
+
+## 주요 구조
+
+- `00_Inbox/` — 캡처와 미분류 입력
+- `10_Projects/` — 프로젝트 상태, 결정, QA, task와 인수인계
+- `20_Codex_Handoff/` — 전역 운영·라우팅·품질·호환 정책
+- `30_Knowledge/LLM_Wiki/` — 출처 기반 재사용 지식
+- `40_References/` — 외부 참고자료
+- `70_Outputs/` — 도구 결과와 임시 산출물
+- `90_Archive/` — 완료·비활성 자료
+- `99_Templates/` — Task/Result와 문서 템플릿
+- `providers/` — 공급자별 최적화와 인증·플랫폼 제약
+
+## 핵심 원칙
+
+- GitHub-first
+- One Front Door
+- Provider 독립 + Provider별 최적화
+- Subscription-first, API 자동 과금 금지
+- Task Packet 기반 재개와 failover
+- Supervised autonomy
+- 검증 없는 완료 금지
+
+## 저장소 경계
+
+실제 PWA, MCP, Orchestrator와 worker 코드는 별도 `dex-company-runtime` 저장소에서 관리한다. 이 저장소에는 정책·상태·스키마·지식만 둔다.
+
+## 핵심 문서
+
+- `AI_CONTRACT.md` — 모든 AI와 런타임의 공통 계약
+- `CURRENT_STATE.md` — 전체 상태 대시보드
+- `DECISIONS.md` — 전역 의사결정 로그
+- `HANDOFF.md` — 다음 작업자를 위한 인수인계
+- `20_Codex_Handoff/DEX_COMPANY_V2_ARCHITECTURE.md` — 목표 아키텍처
+- `20_Codex_Handoff/DEXCOMPANY_APP_PRODUCT_SPEC.md` — PWA 제품 명세
+- `20_Codex_Handoff/MCP_GATEWAY_ARCHITECTURE.md` — 공통 MCP 구조
+- `20_Codex_Handoff/SUBSCRIPTION_FIRST_POLICY.md` — 무API 과금 정책

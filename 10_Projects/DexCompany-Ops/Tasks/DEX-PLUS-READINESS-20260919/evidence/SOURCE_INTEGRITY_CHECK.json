@@ -1,0 +1,149 @@
+{
+  "ref": "438c578307c3af77fa9be05fab8fb84879453ed3",
+  "checks": [
+    {
+      "path": ".agents/plugins/marketplace.json",
+      "result": "PASS",
+      "expected": "ff08b0c7233d409f775bb285f2e1013dae2d0905",
+      "actual": "ff08b0c7233d409f775bb285f2e1013dae2d0905"
+    },
+    {
+      "path": "plugins/dex-company-core/.codex-plugin/plugin.json",
+      "result": "PASS",
+      "expected": "b8b6c33df7fa6a6615d1bc02be3e05a358542868",
+      "actual": "b8b6c33df7fa6a6615d1bc02be3e05a358542868"
+    },
+    {
+      "path": "plugins/dex-company-core/skills/create-screen-spec/SKILL.md",
+      "result": "PASS",
+      "expected": "be58419a5db633e0bbe8e6bb5b04dc998cc23bcc",
+      "actual": "be58419a5db633e0bbe8e6bb5b04dc998cc23bcc"
+    },
+    {
+      "path": "plugins/dex-company-core/skills/create-screen-spec/agents/openai.yaml",
+      "result": "PASS",
+      "expected": "3d8b68104e1534275bc1448f23b205a1f62ac1e8",
+      "actual": "3d8b68104e1534275bc1448f23b205a1f62ac1e8"
+    },
+    {
+      "path": "plugins/dex-company-core/skills/create-screen-spec/assets/SCREEN_SPEC_TEMPLATE.md",
+      "result": "PASS",
+      "expected": "1fb5e16b5b66048cad026e0daa2cc77e6a7e1734",
+      "actual": "1fb5e16b5b66048cad026e0daa2cc77e6a7e1734"
+    },
+    {
+      "path": "plugins/dex-company-core/skills/create-screen-spec/references/SCREEN_SPEC_GUIDE.md",
+      "result": "PASS",
+      "expected": "87fbdd9dd13b2c3d1ce51f17058de6c86ba67304",
+      "actual": "87fbdd9dd13b2c3d1ce51f17058de6c86ba67304"
+    },
+    {
+      "path": "plugins/dex-company-core/skills/design-quality/SKILL.md",
+      "result": "PASS",
+      "expected": "5702537c8be35cf644e5a3ffb9fca79621f68d92",
+      "actual": "5702537c8be35cf644e5a3ffb9fca79621f68d92"
+    },
+    {
+      "path": "plugins/dex-company-core/skills/design-quality/agents/openai.yaml",
+      "result": "PASS",
+      "expected": "860ef03a401b61885392629bb78be1f38ddcde43",
+      "actual": "860ef03a401b61885392629bb78be1f38ddcde43"
+    },
+    {
+      "path": "plugins/dex-company-core/skills/design-quality/assets/foundation.tokens.json",
+      "result": "PASS",
+      "expected": "aa4938477ec2fdccbf35f9b863eac4e9983e7562",
+      "actual": "aa4938477ec2fdccbf35f9b863eac4e9983e7562"
+    },
+    {
+      "path": "plugins/dex-company-core/skills/design-quality/references/DESIGN_CONTRACT.md",
+      "result": "PASS",
+      "expected": "50604d28db100f39ed1602c5191d0fce4309456d",
+      "actual": "50604d28db100f39ed1602c5191d0fce4309456d"
+    },
+    {
+      "path": "plugins/dex-company-core/skills/design-quality/references/EVIDENCE_GATE.md",
+      "result": "PASS",
+      "expected": "de348d2f80a0a591d8cf55069d5f90806f591e68",
+      "actual": "de348d2f80a0a591d8cf55069d5f90806f591e68"
+    },
+    {
+      "path": "plugins/dex-company-core/skills/design-quality/scripts/validate-design-evidence.mjs",
+      "result": "PASS",
+      "expected": "0c952be89d5307bd2804b0acaa2bb6b8ef26fe58",
+      "actual": "0c952be89d5307bd2804b0acaa2bb6b8ef26fe58"
+    },
+    {
+      "path": "plugins/dex-company-core/skills/use-dex-company/SKILL.md",
+      "result": "PASS",
+      "expected": "71b18284e09b6fd5cf3d5a2d63b60f86f26f28e0",
+      "actual": "71b18284e09b6fd5cf3d5a2d63b60f86f26f28e0"
+    },
+    {
+      "path": "plugins/dex-company-core/skills/use-dex-company/agents/openai.yaml",
+      "result": "PASS",
+      "expected": "5b38b4ecbeb9de36b30c0dfd34731eb0a2aaacfd",
+      "actual": "5b38b4ecbeb9de36b30c0dfd34731eb0a2aaacfd"
+    },
+    {
+      "path": "scripts/check.mjs",
+      "result": "PASS",
+      "expected": "66019912b8e9481d7716cad6df5ba3d0ed43f9d4",
+      "actual": "66019912b8e9481d7716cad6df5ba3d0ed43f9d4"
+    },
+    {
+      "path": "test/design-evidence.test.mjs",
+      "result": "PASS",
+      "expected": "09bfc0453c5fdc246409839e00e9f69b5549f0a8",
+      "actual": "09bfc0453c5fdc246409839e00e9f69b5549f0a8"
+    },
+    {
+      "path": "test/dex-plugin-package.test.mjs",
+      "result": "PASS",
+      "expected": "cb7c181279352331288f3c0e8da1346b27d2d2c5",
+      "actual": "cb7c181279352331288f3c0e8da1346b27d2d2c5"
+    },
+    {
+      "path": "test/personal-workspace.test.mjs",
+      "result": "PASS",
+      "expected": "1c9fcb2b982d66172393a5edd3ece90b260fa6d1",
+      "actual": "1c9fcb2b982d66172393a5edd3ece90b260fa6d1"
+    },
+    {
+      "path": "test/task-handoff-store.test.mjs",
+      "result": "PASS",
+      "expected": "e02734e6ca29aa791d6c0b87ef69ab8e260c575c",
+      "actual": "e02734e6ca29aa791d6c0b87ef69ab8e260c575c"
+    },
+    {
+      "path": "services/mcp-gateway/src/personal-workspace.mjs",
+      "result": "PASS",
+      "expected": "5657c001080736c644ac8cc1ce122456c6598e9c",
+      "actual": "5657c001080736c644ac8cc1ce122456c6598e9c"
+    },
+    {
+      "path": "services/mcp-gateway/src/task-run-store.mjs",
+      "result": "PASS",
+      "expected": "5152410bfc1a9a7c04e547d9f62deaedf2b45fb4",
+      "actual": "5152410bfc1a9a7c04e547d9f62deaedf2b45fb4"
+    },
+    {
+      "path": "services/mcp-gateway/src/oauth-replay-store.mjs",
+      "result": "PASS",
+      "expected": "643e61f9845976204a58a3bf12662d542f1623ee",
+      "actual": "643e61f9845976204a58a3bf12662d542f1623ee"
+    },
+    {
+      "path": "services/mcp-gateway/src/task-handoff-store.mjs",
+      "result": "PASS",
+      "expected": "e5eebf28c417a5776b8d1bcafb36a049e220163b",
+      "actual": "e5eebf28c417a5776b8d1bcafb36a049e220163b"
+    },
+    {
+      "path": "docs/AUTOMATIC_HANDOFF.md",
+      "result": "PASS",
+      "expected": "0a11437c63e700e8c439a91e2c32c9dd6649d0e6",
+      "actual": "0a11437c63e700e8c439a91e2c32c9dd6649d0e6"
+    }
+  ]
+}

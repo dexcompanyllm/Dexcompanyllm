@@ -1,0 +1,130 @@
+schemaVersion: '2.0'
+task:
+  id: LM-20260918-001
+  title: LENS ME 기준 등록 및 기존 구현 인계
+  createdAt: '2026-09-18T07:57:51+09:00'
+  createdBy: Ethan
+  status: awaiting-approval
+  priority: normal
+project:
+  name: LensME
+  configPath: 10_Projects/LensME/PROJECT_CONFIG.md
+  repository: ethanhee890-commits/dex-company-wiki
+  baseRef: main
+request:
+  source: ChatGPT conversation
+  clientPlatform: Android
+  objective: 승인 시안에 따른 기준 문서 등록 후 기존 LIVE 렌즈 솔루션 구현 인계
+  originalText: 좋아. 마음에 들어. 이 시안으로 솔루션 개발을 진행할거야. 프로젝트 공통 지침, Work에서 Dex Company로
+    진행할 명령, 별도 LENS ME 디자인 가이드, Wiki 저장과 지속 개발·관리·상품화를 요청해.
+routing:
+  role: planning-design-qa-task-intake
+  requiredCapabilities:
+  - repository-read
+  - repository-write-branch
+  - document-authoring
+  - validation
+  preferredProvider: auto
+  prohibitedProviders: []
+  selectedProvider: null
+  selectedSurface: ChatGPT
+  selectedWorker: null
+  selectedModel: null
+  reasoningEffort: null
+  availabilityClass: null
+  platformCapabilitySnapshot:
+    githubRead: true
+    githubBranchWrite: to-be-verified
+    localArtifactGeneration: true
+    physicalAndroidTest: false
+costPolicy:
+  mode: subscription-only
+  paidApiAllowed: false
+  automaticPaidFallback: false
+  extraUsageAllowed: false
+  budgetLimit: 0
+inputs:
+  files:
+  - 10_Projects/LensME/Design/DESIGN_GUIDE.md
+  - 10_Projects/LensME/Design/REFERENCE_MANIFEST.json
+  urls: []
+  issues: []
+  pullRequests: []
+  sourceNotes:
+  - SRC-U1
+  - SRC-U2
+  - SRC-U3
+  - SRC-A1
+  - SRC-L1
+  - SRC-G1
+constraints:
+  scope:
+  - 10_Projects/LensME/**
+  preserve:
+  - all existing repository paths
+  - prior Lens Screen work
+  - cost/security/permissions/deployment settings
+  exclude:
+  - app implementation inside Wiki
+  - production deploy
+  - paid API
+  - face/video upload
+  - unapproved main merge
+  deadline: null
+  dataPolicy: no secrets; transient on-device face/video by default
+acceptanceCriteria:
+- 3 user-requested guidance deliverables available
+- design approval distinguished from measured values
+- LIVE + brand/product/search/stock/location fully covered
+- demo vs production data separated
+- current/handoff/decisions/sources/QA recorded
+- branch and PR verifiable; main not falsely claimed
+- implementation tests remain Not Checked
+execution:
+  mode: prepare-changes
+  riskLevel: low
+  approvalPolicy: policy-based
+  branch: docs/lensme-foundation-20260918
+  idempotencyKey: LM-20260918-001-foundation-v1
+  checkpoint: foundation-documents
+  hostRequirement: none-for-documents
+  startedAt: '2026-09-18T07:57:51+09:00'
+  updatedAt: '2026-09-18T07:57:51+09:00'
+artifacts:
+  expected:
+  - PROJECT_INSTRUCTIONS.md
+  - WORK_START.md
+  - Design/DESIGN_GUIDE.md
+  - Design/DESIGN_TOKENS.json
+  - PRODUCT_SPEC.md
+  - QA_ACCEPTANCE.md
+  - ROADMAP.md
+  produced: []
+validation:
+  required:
+  - UTF-8
+  - links
+  - JSON/YAML parse
+  - scope
+  - requirements coverage
+  - no embedded secrets
+  - proposal labels
+  status: not-checked
+handoff:
+  previousProvider: null
+  failedAttempts:
+  - step: legacy-guide-full-read
+    count: 2
+    results:
+    - 429 service concurrency
+    - file visibility resolution
+    fallback: use verified search excerpts only
+  resumeFrom: source-discovery after foundation merge
+  doNotRepeat:
+  - requesting approved visual and required features again
+  - rewriting unknown prior code
+  - third identical legacy full read attempt
+audit:
+  taskPacketCommit: null
+  issue: null
+  lastEventAt: '2026-09-18T07:57:51+09:00'

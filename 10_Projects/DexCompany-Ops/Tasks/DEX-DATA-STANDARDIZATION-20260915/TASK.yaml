@@ -1,0 +1,170 @@
+{
+  "schemaVersion": "2.0",
+  "task": {
+    "id": "DEX-DATA-STANDARDIZATION-20260915",
+    "title": "Dex 데이터 표준화·정규화 1차: 원본 참조와 검사 기반",
+    "createdAt": "2026-09-15T10:19:30.569Z",
+    "createdBy": "Ethan",
+    "accountableLead": "Jenny",
+    "status": "completed",
+    "priority": "normal"
+  },
+  "project": {
+    "name": "DexCompany-Ops",
+    "configPath": "10_Projects/DexCompany-Ops/PROJECT_CONFIG.md",
+    "repository": "ethanhee890-commits/dex-company-wiki",
+    "baseRef": "b3a24f4922bde287895c993189df28ae0a4877a7"
+  },
+  "request": {
+    "source": "chatgpt-work",
+    "clientPlatform": "unknown",
+    "objective": "표기·형식과 기준정보 참조를 정리하고 원본·이력을 보존하면서 데이터 정규화를 단계적으로 진행해요.",
+    "originalText": "dex company 데이터의 정리가 필요해.\n데이터 표준화, 데이터 정규화를 해야해."
+  },
+  "routing": {
+    "role": "knowledge-management",
+    "requiredCapabilities": [
+      "github-read",
+      "schema-design",
+      "write-markdown",
+      "run-tests",
+      "github-write"
+    ],
+    "preferredProvider": "auto",
+    "prohibitedProviders": [],
+    "selectedProvider": "openai",
+    "selectedSurface": "chatgpt-work",
+    "selectedWorker": "current-session",
+    "selectedModel": null,
+    "reasoningEffort": null,
+    "availabilityClass": null,
+    "platformCapabilitySnapshot": {
+      "githubRead": "confirmed",
+      "githubBranchPreparation": "available",
+      "dexRuntimeWorker": "Not Checked"
+    }
+  },
+  "costPolicy": {
+    "mode": "subscription-only",
+    "paidApiAllowed": false,
+    "automaticPaidFallback": false,
+    "extraUsageAllowed": false,
+    "budgetLimit": 0
+  },
+  "inputs": {
+    "files": [
+      "AI_CONTRACT.md",
+      "CURRENT_STATE.md",
+      "10_Projects/DexCompany-Ops/PROJECT_CONFIG.md",
+      "10_Projects/DexCompany-Ops/CURRENT.md",
+      "10_Projects/DexCompany-Ops/SESSION_HANDOFF.md",
+      "10_Projects/DexCompany-Ops/DECISIONS.md",
+      "20_Codex_Handoff/LLM_WIKI_VERIFICATION_SCHEMA.md",
+      "99_Templates/TASK_PACKET.yaml"
+    ],
+    "urls": [
+      "https://api.github.com/repos/ethanhee890-commits/dex-company-wiki/git/trees/eece778fdf44bdb4c25de81804f2372193a03543?recursive=1"
+    ],
+    "issues": [],
+    "pullRequests": [
+      "https://github.com/ethanhee890-commits/dex-company-wiki/pull/185"
+    ],
+    "sourceNotes": []
+  },
+  "constraints": {
+    "scope": [
+      "전체 main Git tree metadata 진단",
+      "공통 표준·필드 사전·논리 모델",
+      "프로젝트 ID/기준 원문 catalog와 생성 index",
+      "LLM Wiki 실행 절차의 단일 운영 가이드 참조",
+      "읽기 전용 참조·중복·생성물 CI 검사",
+      "후속 migration의 근거·우선순위·rollback"
+    ],
+    "preserve": [
+      "기존 파일명·폴더·프로젝트 ID",
+      "8개 운영 생성 문서와 보존 원문 및 기존 검사",
+      "기존 Task/Result/Skill/LLM Wiki 메타데이터 필드",
+      "미확인 host/설치/실행 상태",
+      "열린 PR의 고유 데이터"
+    ],
+    "exclude": [
+      "파일 삭제·이름 변경·대량 이동",
+      "구형 Task와 지식 원문의 일괄 변환",
+      "Runtime 코드·DB·plugin 설치·운영 배포",
+      "외부 메시지·자동화 일정·요금·권한 변경",
+      "승인 없는 main merge"
+    ],
+    "deadline": null,
+    "dataPolicy": "minimum-context-no-secrets"
+  },
+  "acceptanceCriteria": [
+    "전체 목록 진단을 고정 commit과 Git tree로 재현 가능하게 기록",
+    "현재 값·버전·host 경로를 catalog/index에 복제하지 않음",
+    "등록된 네 프로젝트의 핵심 참조 및 새 프로젝트 등록 누락 감지",
+    "검사에 중복 ID/JSON key·잘못된 링크·낡은 생성물 실패 시나리오 포함",
+    "기존 8개 운영 문서·정책 보존 검사 유지",
+    "미실행 전체 내용 검증·Runtime DB·실기기 검증을 Not Checked로 명시",
+    "PR·검증·검수 후 기존 main 승인 정책 적용"
+  ],
+  "execution": {
+    "mode": "prepare-changes",
+    "riskLevel": "low",
+    "approvalPolicy": "policy-based",
+    "branch": "data/standardize-normalize-20260915",
+    "idempotencyKey": "DEX-DATA-STANDARDIZATION-20260915",
+    "checkpoint": "phase-1-merged-and-main-verified",
+    "hostRequirement": "github-connected-work-session",
+    "startedAt": "2026-09-15T10:19:30.569Z",
+    "updatedAt": "2026-09-15T10:36:57.942349Z"
+  },
+  "artifacts": {
+    "expected": [
+      "20_Codex_Handoff/DATA_STANDARD.md",
+      "20_Codex_Handoff/DATA_CATALOG.json",
+      "20_Codex_Handoff/PROJECT_INDEX.md",
+      "10_Projects/DexCompany-Ops/Tasks/DEX-DATA-STANDARDIZATION-20260915/AUDIT.json",
+      "10_Projects/DexCompany-Ops/Tasks/DEX-DATA-STANDARDIZATION-20260915/RESULT.yaml",
+      "10_Projects/DexCompany-Ops/Tasks/DEX-DATA-STANDARDIZATION-20260915/EVIDENCE.md"
+    ],
+    "produced": [
+      "20_Codex_Handoff/DATA_STANDARD.md",
+      "20_Codex_Handoff/DATA_CATALOG.json",
+      "20_Codex_Handoff/PROJECT_INDEX.md",
+      "10_Projects/DexCompany-Ops/DATA_MODEL.md",
+      "20_Codex_Handoff/LLM_WIKI_VERIFICATION_SCHEMA.md",
+      "scripts/data-catalog.mjs",
+      "scripts/data-catalog.test.mjs",
+      ".github/workflows/ops-state.yml",
+      "10_Projects/DexCompany-Ops/Tasks/DEX-DATA-STANDARDIZATION-20260915/TASK.yaml",
+      "10_Projects/DexCompany-Ops/Tasks/DEX-DATA-STANDARDIZATION-20260915/AUDIT.json",
+      "10_Projects/DexCompany-Ops/Tasks/DEX-DATA-STANDARDIZATION-20260915/EVIDENCE.md",
+      "10_Projects/DexCompany-Ops/Tasks/DEX-DATA-STANDARDIZATION-20260915/RESULT.yaml"
+    ]
+  },
+  "validation": {
+    "required": [
+      "catalog unit/negative tests",
+      "existing ops-state tests",
+      "Git tree reference integrity",
+      "UTF-8/links/secrets/diff",
+      "PR CI",
+      "independent human/model review"
+    ],
+    "status": "PASS"
+  },
+  "handoff": {
+    "previousProvider": null,
+    "failedAttempts": [],
+    "resumeFrom": "10_Projects/DexCompany-Ops/Tasks/DEX-DATA-STANDARDIZATION-20260915/EVIDENCE.md",
+    "doNotRepeat": [
+      "스냅샷의 다른 날짜/버전을 오류로 간주해 자동 승격하지 않기",
+      "같은 파일 SHA를 삭제 승인으로 해석하지 않기",
+      "원본과 사용자 요청 재입력 요구하지 않기"
+    ]
+  },
+  "audit": {
+    "taskPacketCommit": null,
+    "issue": null,
+    "lastEventAt": "2026-09-15T10:36:57.942349Z"
+  }
+}

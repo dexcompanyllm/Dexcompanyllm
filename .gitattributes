@@ -1,0 +1,6 @@
+* text=auto
+*.md text eol=lf whitespace=-blank-at-eof
+*.json text eol=lf
+*.canvas text eol=lf
+*.base text eol=lf
+*.csv text eol=lf

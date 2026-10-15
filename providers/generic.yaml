@@ -1,0 +1,24 @@
+schemaVersion: "1.0"
+provider: "generic"
+status: "disabled-until-configured"
+
+canonicalContract: "AI_CONTRACT.md"
+authentication:
+  paidApiAllowed: false
+  secretStorage: "external-only"
+
+costPolicy:
+  subscriptionFirst: true
+  paidApiAllowed: false
+  automaticPaidFallback: false
+
+requirements:
+  - "health"
+  - "capabilities"
+  - "start"
+  - "resume"
+  - "cancel"
+  - "streamEvents"
+  - "collectResult"
+
+unsupportedCapabilityPolicy: "report-unsupported-do-not-emulate"

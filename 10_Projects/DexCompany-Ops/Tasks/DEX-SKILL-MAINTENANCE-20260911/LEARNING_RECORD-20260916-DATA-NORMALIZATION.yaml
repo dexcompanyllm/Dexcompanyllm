@@ -1,0 +1,90 @@
+schemaVersion: "1.0"
+id: "DEX-LEARNING-DATA-NORMALIZATION-20260916"
+taskId: "DEX-SKILL-MAINTENANCE-20260911"
+domain: "cross-domain data governance"
+trigger: "outcome"
+source:
+  references:
+    - "https://github.com/ethanhee890-commits/dex-company-wiki/commit/ded9e8cd3e4cfb31f88c2296375a3f2c92756e08"
+    - "20_Codex_Handoff/DATA_STANDARD.md"
+    - "20_Codex_Handoff/DATA_CATALOG.json"
+    - "10_Projects/DexCompany-Ops/Tasks/DEX-DATA-STANDARDIZATION-20260915/RESULT.yaml"
+    - "https://github.com/ethanhee890-commits/ethanhee890-commits-dex-company-runtime/pull/230"
+  revision: "ded9e8cd3e4cfb31f88c2296375a3f2c92756e08"
+  license: "Dex-owned private operating policy"
+  capturedAt: "2026-09-16T07:30:08+09:00"
+classification: "SKILL"
+scope:
+  userOrProject: "Dex Company data standards, schemas, catalogs, data identifiers and normalization"
+  reusableAcrossProjects: true
+  excludedData:
+    - "database contents and credentials"
+    - "customer or personal payloads"
+    - "unverified host paths and installed plugin state"
+hypothesis: "Conditionally routing data work through canonical standards will reduce duplicated mutable state and destructive normalization without loading extra context for unrelated work."
+currentMethod: "The common Skill loaded minimal project context but did not route data work to DATA_STANDARD and DATA_CATALOG or require reader/round-trip evidence before migration."
+candidateMethod: "For data-standard, schema, catalog, project/Task/source/record ID or normalization work, load canonical data rules, preserve observations and unknowns, reference one authoritative fact, and require reader/mapping/round-trip/rollback/regression evidence before conversion."
+counterexamples:
+  - "A normal non-data status summary must not load the data standard."
+  - "A past snapshot and current registry are separate observations, not a conflict to overwrite."
+  - "Equal blobs do not prove equal ownership or safe deletion."
+  - "A flat legacy Task is not migrated before reader and round-trip evidence."
+  - "A new project is not registered with an invented ID or missing config path."
+evaluations:
+  - case: "new project catalog registration"
+    baselineEvidence: "Risk of an invented ID or copied mutable state"
+    candidateEvidence: "Requires approved data ID, canonical config path and reference validation"
+    verdict: "PASS"
+    actualOrSimulated: "simulated"
+  - case: "legacy flat Task migration"
+    baselineEvidence: "Risk of rewriting IDs and losing approval or checkpoint state"
+    candidateEvidence: "Requires field mapping, reader, round trip, rollback and regression evidence before conversion"
+    verdict: "PASS"
+    actualOrSimulated: "simulated"
+  - case: "past snapshot versus current registry"
+    baselineEvidence: "Different observation dates can look inconsistent"
+    candidateEvidence: "Preserves date, commit, host and verification scope as separate observations"
+    verdict: "PASS"
+    actualOrSimulated: "simulated"
+  - case: "same-blob document cleanup"
+    baselineEvidence: "Similarity alone can trigger destructive deduplication"
+    candidateEvidence: "Requires ownership and source-record responsibility before merge/delete/rename"
+    verdict: "PASS"
+    actualOrSimulated: "simulated"
+  - case: "ordinary non-data status summary"
+    baselineEvidence: "Extra policy loading would waste context"
+    candidateEvidence: "Conditional trigger remains limited to canonical data identifiers and normalization"
+    verdict: "PASS"
+    actualOrSimulated: "simulated"
+metrics:
+  qualityDelta: null
+  reworkDelta: null
+  userReentryDelta: null
+  elapsedTimeDelta: null
+  safetyRegression: false
+state:
+  sourceObserved: "ded9e8cd3e4cfb31f88c2296375a3f2c92756e08"
+  sourceReviewed: "ded9e8cd3e4cfb31f88c2296375a3f2c92756e08"
+  sourceApplied: "d936d1627604721497ee1a9a5177709daf0c1452"
+  installed: null
+  behaviorVerified: "Independent simulated forward review 5/5 PASS; actual approved-host fresh-session and real-task reuse Not Checked"
+review:
+  reviewer: "independent Codex forward reviewer"
+  evidence:
+    - "Runtime PR #230 changed exactly three files, 29 additions and 2 deletions"
+    - "Runtime exact-head PR run 35031762836 and push run 35031761252 PASS"
+    - "No marketplace, dependency, script, credential, paid provider, permission expansion or experimental feature change"
+  verdict: "PASS"
+approval:
+  existingScopeReference: "AI_CONTRACT.md; 20_Codex_Handoff/DEX_GROWTH_PROTOCOL.md; DEX-SKILL-MAINTENANCE-20260911"
+  newDecisionNeeded: false
+rollback:
+  previousRevision: "6ebb3dc489f016c8dd5e12f1479ee8b6737e52d4"
+  trigger: "Non-data tasks load data policy, observations are collapsed, unknowns are promoted, migration gates are skipped or package tests regress"
+expiry:
+  reviewAfter: "2026-10-16"
+  invalidationConditions:
+    - "DATA_STANDARD or DATA_CATALOG contract changes"
+    - "use-dex-company data-normalization section changes"
+    - "plugin package version or Skill inventory changes without matching tests"
+nextAction: "On an approved host, install the exact main revision, start a fresh session, use a real data migration/catalog Task and record broken-reference, rework and user-reentry results."

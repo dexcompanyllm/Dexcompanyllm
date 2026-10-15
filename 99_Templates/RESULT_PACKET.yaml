@@ -1,0 +1,66 @@
+schemaVersion: "2.0"
+
+task:
+  id: "DC-YYYYMMDD-001"
+  finalStatus: "completed"
+  completedAt: "YYYY-MM-DDTHH:mm:ss+09:00"
+
+execution:
+  provider: ""
+  surface: ""
+  worker: ""
+  model: ""
+  reasoningEffort: ""
+  authenticationMode: "subscription"
+  paidApiUsed: false
+  extraUsageUsed: false
+  availabilityClass: ""
+  host: null
+  checkpointStartedFrom: ""
+  branch: null
+  commits: []
+
+summary:
+  outcome: ""
+  changes: []
+  unchangedByDesign: []
+
+artifacts:
+  files: []
+  links: []
+  pullRequests: []
+
+validation:
+  status: "not-checked"
+  checks:
+    - name: ""
+      result: "PASS"
+      evidence: ""
+  failures: []
+  notChecked: []
+
+acceptanceCriteria:
+  met: []
+  unmet: []
+
+risk:
+  remaining: []
+  securityNotes: []
+  costNotes: []
+  platformLimitations: []
+
+handoff:
+  nextAction: ""
+  nextProvider: "auto"
+  resumeCheckpoint: null
+  doNotRepeat: []
+
+approval:
+  requested: []
+  granted: []
+  pending: []
+
+audit:
+  taskPacketCommit: null
+  resultPacketCommit: null
+  eventLog: null
