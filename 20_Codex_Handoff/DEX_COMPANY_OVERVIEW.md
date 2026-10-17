@@ -4,6 +4,12 @@
 
 Dex Company는 에던이 하나의 명령으로 여러 AI와 실행 환경을 사용하고, GitHub에서 상태를 보존하며, 다른 provider가 중단 지점부터 이어받게 하는 개인 AI 업무 운영체계다.
 
+## 모든 AI가 공유하는 업무 체계
+
+ChatGPT·Work·Codex·Claude·Claude Code·Gemini 등 모든 AI는 같은 Dex Company의 정책·지식·Task·품질 기준을 사용해 기획·디자인·리서치·문서 작성·개발·QA 등 모든 업무를 수행해요. AI 제품명이나 공급자별로 업무 역할을 고정하거나 독점 배정하지 않아요.
+
+업무 역할은 현재 Task에 따라 정하고, AI별 차이는 실제 도구·인증·권한·host·구독 한도에서 확인해요. 같은 AI에서 가능한 업무는 완료하며 역할표만으로 AI 전환을 요구하지 않아요.
+
 ## 공식 구성요소
 
 - GitHub 기반 Dex Company Core
@@ -30,7 +36,7 @@ Obsidian은 공식 구성요소가 아니다.
 - `/구직자`
 - `/지식관리`
 
-역할은 `ROLE_CAPABILITY_MATRIX.md`에서 capability로 변환되고 `providers/`에서 현재 최적 provider·surface·모델로 매핑된다.
+업무 역할은 `ROLE_CAPABILITY_MATRIX.md`에서 필요한 capability로 변환돼요. `providers/`는 실제 실행 경로를 연결하며 AI별 업무 소유권을 정하지 않아요.
 
 ## 운영 계약
 

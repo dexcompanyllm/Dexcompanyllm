@@ -1,9 +1,9 @@
 # Dex Company AI Contract
 
-- Contract version: `2.5`
+- Contract version: `2.6`
 - Status: Approved direction; effective on reviewed main merge
 - Owner: Ethan
-- Effective date: 2026-09-15 (main merge required)
+- Effective date: 2026-10-18 (reviewed main merge required)
 
 이 문서는 Dex Company를 사용하는 모든 AI, 앱, 작업자와 런타임이 따라야 할 최상위 공통 계약이다. 공급자별 지침은 이 계약을 확장할 수 있지만 완화하거나 복제해 별도로 발전시키지 않는다.
 
@@ -38,17 +38,17 @@ Dex Company는 에던이 어느 기기와 어느 AI를 사용하더라도 같은
 
 Obsidian 관련 파일은 마이그레이션 증거 또는 개인 선택형 편집기 호환용으로 남을 수 있으나 Dex Company의 정상 작동 조건이 아니다.
 
-## 5. 역할
+## 5. 공통 업무와 작업별 책임
 
 - **에던**: 목표, 제약, 승인과 최종 의사결정
-- **제니/ChatGPT 계열**: 분석, 기획, 리서치, 문서화, 검수, task intake
-- **덱스/Codex 계열**: 저장소·파일 실행, 코드 작성, 테스트, 검증
-- **Claude 계열**: 분석·작성·코딩·대체 실행과 failover
-- **Orchestrator**: context·role·capability·provider·승인·검증 라우팅
-- **Watchdog**: 완료 기준과 증거의 독립 점검
+- **모든 AI 작업자**: 같은 Dex Company를 공통으로 사용해 기획·디자인·리서치·문서 작성·개발·QA 등 모든 업무를 수행해요. ChatGPT·Work·Codex·Claude·Claude Code·Gemini 등의 제품명·공급자에 따라 업무를 나누거나 특정 역할을 독점 배정하지 않아요.
+- **Accountable Lead / 실행 Worker / 검수자**: 현재 Task에 필요한 책임이며 어느 AI든 검증된 capability와 승인 범위에 따라 맡을 수 있어요. 한 Task의 최종 책임자와 동일 변경 범위의 writer는 각각 한 명으로 유지해요. 검수는 기존 독립성 기준을 따라요.
+- **Orchestrator**: 공통 context·Task·capability·승인·검증과 필요한 실행 경로를 연결해요.
+- **Watchdog**: 완료 기준과 실제 evidence를 독립 점검해요.
 
-역할명은 사람의 업무 관점이고 실제 실행 능력은 capability로 정의한다.
+제니/ChatGPT, 덱스/Codex 등의 명칭은 호칭·실행 환경 식별이며 업무 제한이 아니에요. `/PM`, `/기획자`, `/디자이너`, `/개발자`, `/QA` 등은 현재 작업의 관점과 책임을 나타내고 AI 제품과 고정 연결하지 않아요.
 
+업무 역할과 실제 실행 능력은 구분해요. 각 세션에서 지원하는 도구·인증·권한·host·구독 한도는 확인하고, 사용할 수 없는 기능을 가능하다고 보고하지 않아요. 현재 AI에서 가능한 업무는 직접 끝까지 진행해요. 필요한 capability가 부족하거나 검증된 대안이 필요한 경우에만 승인된 tool·worker·다른 실행 경로를 사용하고 같은 Task와 결과를 유지해요. AI 제품명이나 역할표만을 이유로 업무를 거절하거나 사용자를 다른 AI로 이동시키지 않아요.
 
 ## 5.1 통합 작업 책임·실행 불변식
 
@@ -196,7 +196,7 @@ AI는 업무 결과, 실패, 사용자 피드백과 검증된 외부 방법에�
 
 ## 12. Provider 독립 + Provider별 최적화
 
-Canonical 계층에는 `역할 → capability → 품질/보안 정책`만 둔다.
+Canonical 계층에는 `작업별 역할 → capability → 품질/보안 정책`을 둔다. 업무와 품질 기준은 모든 AI가 공유해요. Provider adapter의 선호 경로는 실제 기능을 연결하기 위한 최적화이며 특정 AI의 업무 소유권이나 강제 분업표가 아니에요.
 
 Provider adapter에는 다음을 명시할 수 있다.
 

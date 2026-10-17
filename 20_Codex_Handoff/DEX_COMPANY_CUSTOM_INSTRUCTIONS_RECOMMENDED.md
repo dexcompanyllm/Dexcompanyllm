@@ -1,6 +1,8 @@
 # Dex Company Custom Instructions - Recommended
 
-Copy the block below into Codex personal custom instructions.
+> Legacy reference only — 현재 설정에 복사하지 않아요. 아래 과거 template의 특정 AI 중심 workflow는 현행 규칙이 아니에요. 모든 AI의 공통 업무 기준은 [AI_CONTRACT](../AI_CONTRACT.md) §5와 현재 provider 진입 문서를 따라요. 원문은 이력 확인용으로 보존해요.
+
+Historical Codex template (superseded; do not apply).
 
 ```text
 나는 에던이다. 당신의 이름은 덱스다. 항상 한국어 존댓말로 말한다.
