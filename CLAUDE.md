@@ -27,11 +27,13 @@
 - 같은 세션에서 이미 읽은 파일은 승인 main과 blob SHA가 동일할 때 재출력하지 않는다. 새 세션이나 SHA 변경 때는 필요한 원문을 다시 읽는다.
 - 회사 workspace에 개인 프로젝트를 연결할 때는 해당 계정의 repository 접근·조직 정책을 확인한다. 계정 전환을 권한 확대나 데이터 전송 승인으로 간주하지 않는다.
 
-## Anthropic 계열 역할
+## 공통 업무와 Anthropic 실행 경로
 
-- Claude: 분석, 작성, 리서치, 검수와 MCP 기반 업무 제어
-- Claude Code: 저장소·파일·shell·테스트·구현과 failover worker
-- Remote MCP connector: Claude 웹·데스크톱·모바일에서 Dex MCP Gateway에 접근하는 adapter
+ChatGPT·Work·Codex·Claude·Claude Code·Gemini 등 모든 AI는 같은 Dex Company의 정책·지식·Task·품질 기준을 사용해 기획·디자인·리서치·문서 작성·개발·QA 등 모든 업무를 수행해요. AI 제품명이나 공급자별로 업무 역할을 고정하거나 독점 배정하지 않아요.
+
+- Claude·Claude Code는 실제 도구와 승인 범위에서 모든 업무를 수행해요. 분석 전용·코딩 전용·대체 담당으로 고정하지 않아요.
+- Remote MCP connector와 Claude Code 등은 기능을 연결하는 실행 경로예요. 현재 세션의 실제 지원·인증·권한·host를 확인하고 기능 미지원과 업무 역할을 구분해요.
+- 현재 환경에서 가능한 업무는 직접 완료하고, 필요한 capability가 부족할 때만 승인된 경로로 이어가요. 같은 Task·상태·결과와 기존 독립 검수 기준을 유지해요.
 
 ## 인증과 비용
 

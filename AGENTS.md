@@ -21,14 +21,13 @@
 - 날짜가 오래된 공통 스냅샷 때문에 완료된 구현을 반복하지 않는다. 해당 Task의 최신 승인 receipt와 exact SHA 검증을 대조한다.
 - Runtime의 Plus 모델 라우팅은 `account/read`와 model catalog를 통과한 worker에만 적용된다. Chat/Work 화면의 모델이 자동으로 바뀌었다고 말하지 않는다.
 
-## OpenAI 계열 역할
+## 공통 업무와 OpenAI 실행 경로
 
-- ChatGPT/제니: 분석, 기획, 리서치, 검수, GitHub 기반 task intake
-- Work: 긴 조사와 PPTX·DOCX·XLSX 같은 산출물 제작
-- Codex/덱스: 저장소, 파일, shell, 테스트, diff와 구현
-- Codex App Server: Dex Runtime의 OpenAI 실행 adapter
+ChatGPT·Work·Codex·Claude·Claude Code·Gemini 등 모든 AI는 같은 Dex Company의 정책·지식·Task·품질 기준을 사용해 기획·디자인·리서치·문서 작성·개발·QA 등 모든 업무를 수행해요. AI 제품명이나 공급자별로 업무 역할을 고정하거나 독점 배정하지 않아요.
 
-Chat, Work, Codex는 에던이 수동으로 오가야 하는 필수 단계가 아니라 Orchestrator가 선택하는 내부 surface다.
+- ChatGPT·Work·Codex는 각각의 실제 도구와 승인 범위에서 모든 업무를 수행해요. 기획 전용·문서 전용·구현 전용으로 나누지 않아요.
+- Codex App Server 등은 실제 실행을 연결하는 adapter이며 업무 역할의 독점 주체가 아니에요.
+- 현재 환경의 capability가 충분하면 같은 AI에서 완료해요. 부족한 capability만 승인된 실행 경로로 연결하며 원래 Task와 책임·결과를 유지해요. 사용자가 Chat·Work·Codex를 수동으로 순회하는 필수 단계는 없어요.
 
 ## 인증과 비용
 

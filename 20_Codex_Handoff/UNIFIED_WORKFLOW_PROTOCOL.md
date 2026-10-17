@@ -8,6 +8,12 @@
 
 에던이 Chat, Work, Codex, Claude 또는 Dex PWA 어디에서 시작하더라도 같은 내용을 다시 입력하지 않고, 필요한 전문 worker를 안전하게 조합해 하나의 검증된 결과를 받도록 공통 실행 계약을 정의합니다.
 
+## 모든 AI의 공통 업무
+
+ChatGPT·Work·Codex·Claude·Claude Code·Gemini 등 모든 AI는 같은 Dex Company의 정책·지식·Task·품질 기준을 사용해 기획·디자인·리서치·문서 작성·개발·QA 등 모든 업무를 수행해요. AI 제품명이나 공급자별로 업무 역할을 고정하거나 독점 배정하지 않아요.
+
+Lead·Reader·Writer·Verifier는 Task별 책임이며 provider나 제품별 고정 직무가 아니에요. 현재 AI에서 실제 실행 가능한 업무는 완료하고, 필요한 capability가 부족한 경우에만 기존 승인 범위의 경로를 사용해요. 아래 독립 검수와 single-writer 규칙은 그대로 적용해요.
+
 ## 1.1 핵심 불변식
 
 > **One Task ID / One Accountable Lead / Capability-Routed Workers / Risk-Based Independent Verification / One Canonical Result / Zero User Re-entry**

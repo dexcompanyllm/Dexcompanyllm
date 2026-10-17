@@ -2,6 +2,12 @@
 
 Dex Company는 GitHub를 중심으로 여러 AI와 기기에서 같은 지식·상태·업무 흐름을 이어가는 개인 AI 업무 운영체계다.
 
+## 모든 AI에서 같은 업무 체계
+
+ChatGPT·Work·Codex·Claude·Claude Code·Gemini 등 모든 AI는 같은 Dex Company의 정책·지식·Task·품질 기준을 사용해 기획·디자인·리서치·문서 작성·개발·QA 등 모든 업무를 수행해요. AI 제품명이나 공급자별로 업무 역할을 고정하거나 독점 배정하지 않아요.
+
+역할은 현재 작업의 관점이며 도구·인증·권한의 실제 지원 여부와 구분해요. AI별 기능 차이는 실행 경로에서 처리하고 동일 Task·품질 기준·결과를 유지해요.
+
 ## Source of Truth
 
 GitHub `main`의 승인된 최신 상태가 단일 기준정보다.
