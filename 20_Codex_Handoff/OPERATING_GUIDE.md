@@ -1,5 +1,7 @@
 # Codex Operating Guide
 
+> Legacy reference only — 아래는 과거 Codex·Obsidian 중심 운영안내이며 현재 Bootstrap 지침으로 적용하지 않아요. 최신 기준은 [AI_CONTRACT](../AI_CONTRACT.md) §5의 모든 AI 공통 업무 원칙과 현재 AI의 진입 문서([AGENTS](../AGENTS.md), [CLAUDE](../CLAUDE.md), [GEMINI](../GEMINI.md))예요. 같은 Task·상태·품질 기준을 이어받고 실제 도구·인증·권한의 가용성을 별도로 확인해요. 과거 본문은 이력 확인용으로 보존해요.
+
 ## 목적
 
 이 폴더는 덱스 컴퍼니의 전역 운영 문서, 재사용 프롬프트, 세팅 handoff를 보관하는 곳입니다.
