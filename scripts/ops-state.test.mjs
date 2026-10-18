@@ -1,7 +1,11 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import fs from 'node:fs';
-import { BASE, FILES, SNAPSHOT, HISTORY_BEGIN, HISTORY_END, render, verify, validateSnapshot } from './ops-state.mjs';
+import os from 'node:os';
+import path from 'node:path';
+import { spawnSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
+import { BASE, FILES, SNAPSHOT, HISTORY_BEGIN, HISTORY_END, PUBLIC_HISTORY_ARCHIVE, render, verify, validateSnapshot, readHistory } from './ops-state.mjs';
 const s = JSON.parse(fs.readFileSync(new URL('../' + SNAPSHOT, import.meta.url), 'utf8'));
 const old = Buffer.from('\ufeff# Historical\r\nPAST PASS\r\n[[unchanged link]]\r\n');
 test('valid evidence renders all eight documents and preserves exact bytes including BOM/CRLF', () => {
@@ -79,4 +83,133 @@ test('inconsistent test or audit counts cannot become current evidence', () => {
   const failed = { ...s, mainStatus: 'FAIL', runtimeTests: { total: 286, pass: 284, fail: 1, skipped: 1 } };
   assert.doesNotThrow(() => validateSnapshot(failed));
   assert.match(render(failed, FILES[0], old).toString(), /FAIL 1/);
+});
+
+const repository = fileURLToPath(new URL('../', import.meta.url));
+const command = fileURLToPath(new URL('./ops-state.mjs', import.meta.url));
+function publicFixture(context) {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'dex-public-history-'));
+  context.after(() => fs.rmSync(root, { recursive: true, force: true }));
+  for (const name of [SNAPSHOT, PUBLIC_HISTORY_ARCHIVE, ...FILES]) {
+    const target = path.join(root, name);
+    fs.mkdirSync(path.dirname(target), { recursive: true });
+    fs.copyFileSync(path.join(repository, name), target);
+  }
+  return root;
+}
+function runCLI(root) {
+  // No Git executable or repository is available; the real command must work
+  // from its reviewed archive, never from generated current-file expectations.
+  return spawnSync(process.execPath, [command], {
+    cwd: root, encoding: 'utf8', timeout: 5000,
+    env: { ...process.env, PATH: '', GIT_DIR: path.join(root, 'absent-git') },
+  });
+}
+function rejectCLI(root, pattern) {
+  const result = runCLI(root);
+  assert.equal(result.status, 1, result.error?.message);
+  assert.equal(result.stdout, '');
+  assert.match(result.stderr, pattern);
+}
+
+test('real public CLI passes without Git and reports the historical redaction honestly', context => {
+  const root = publicFixture(context);
+  assert.equal(fs.existsSync(path.join(root, '.git')), false);
+  const result = runCLI(root);
+  assert.equal(result.status, 0, result.stderr);
+  assert.match(result.stdout, /seven original documents, one owner-approved redaction/);
+  assert.match(result.stdout, /Windows remains Not Checked/);
+  assert.equal(result.stderr, '');
+});
+
+test('real CLI rejects active SHA/status/safety drift and historical edits in every document', context => {
+  const root = publicFixture(context);
+  for (const file of FILES) {
+    const target = path.join(root, file);
+    const original = fs.readFileSync(target);
+    const text = original.toString('utf8');
+    for (const mutate of [
+      value => value.replace(s.runtimeSha, 'a'.repeat(40)),
+      value => value.replace('**Not Checked**', '**PASS**'),
+      value => value.replace('| P3-CWD |', '| OMITTED |'),
+      value => value.replace(HISTORY_BEGIN, HISTORY_BEGIN + 'unauthorized historical edit\n'),
+    ]) {
+      const changed = mutate(text);
+      assert.notEqual(changed, text);
+      fs.writeFileSync(target, changed);
+      rejectCLI(root, /Document drift/);
+      fs.writeFileSync(target, original);
+    }
+  }
+});
+
+test('real CLI rejects silent permission promotion in snapshot evidence', context => {
+  const root = publicFixture(context);
+  const target = path.join(root, SNAPSHOT);
+  fs.writeFileSync(target, JSON.stringify({ ...s, permissionsChanged: true }));
+  rejectCLI(root, /Policy change outside repair/);
+});
+
+test('real CLI rejects a missing archive and never falls back to generated history', context => {
+  const root = publicFixture(context);
+  fs.unlinkSync(path.join(root, PUBLIC_HISTORY_ARCHIVE));
+  rejectCLI(root, /Missing or nonregular verification file/);
+});
+
+test('real CLI rejects archive tampering, wrong schema/identity and duplicate/missing/extra paths', context => {
+  const root = publicFixture(context);
+  const target = path.join(root, PUBLIC_HISTORY_ARCHIVE);
+  const original = fs.readFileSync(target);
+  const corrupt = Buffer.from(original);
+  corrupt[0] = 0x5b; // same byte length: must fail the independently pinned hash
+  fs.writeFileSync(target, corrupt);
+  rejectCLI(root, /archive integrity failure/);
+  for (const mutate of [
+    value => { value.schemaVersion = 2; },
+    value => { value.originalSource.commit = 'a'.repeat(40); },
+    value => { value.documents[0].path = value.documents[1].path; },
+    value => { value.documents.pop(); },
+    value => { value.documents.push({ ...value.documents[0], path: 'unexpected.md' }); },
+    value => { value.documents[0].base64 = Buffer.from('unapproved baseline').toString('base64'); },
+  ]) {
+    const archive = JSON.parse(original.toString());
+    mutate(archive);
+    fs.writeFileSync(target, JSON.stringify(archive));
+    rejectCLI(root, /archive integrity failure|Verification file size mismatch/);
+  }
+});
+
+test('real CLI rejects file/directory and parent-symlink boundary bypasses', context => {
+  for (const mode of ['archive-directory', 'archive-symlink', 'archive-parent-symlink', 'document-symlink', 'document-parent-symlink']) {
+    const root = publicFixture(context);
+    if (mode === 'archive-directory') {
+      const target = path.join(root, PUBLIC_HISTORY_ARCHIVE);
+      fs.unlinkSync(target); fs.mkdirSync(target);
+    } else {
+      const relative = mode === 'archive-parent-symlink' ? 'scripts/fixtures'
+        : mode === 'document-parent-symlink' ? '10_Projects/DexCompany-Ops'
+          : mode === 'document-symlink' ? FILES[0] : PUBLIC_HISTORY_ARCHIVE;
+      const target = path.join(root, relative);
+      const moved = path.join(root, 'moved-verification-input');
+      const directory = mode.endsWith('parent-symlink');
+      fs.renameSync(target, moved);
+      fs.symlinkSync(moved, target, directory ? 'dir' : 'file');
+    }
+    rejectCLI(root, /Missing or nonregular verification file/);
+  }
+});
+
+test('changing both the current document and exported baseline cannot repin the checker', context => {
+  const root = publicFixture(context);
+  const doc = path.join(root, FILES[0]);
+  fs.writeFileSync(doc, fs.readFileSync(doc, 'utf8').replace(HISTORY_BEGIN, HISTORY_BEGIN + 'changed\n'));
+  const target = path.join(root, PUBLIC_HISTORY_ARCHIVE);
+  const archive = JSON.parse(fs.readFileSync(target, 'utf8'));
+  archive.documents[0].base64 = Buffer.from('changed\n').toString('base64');
+  fs.writeFileSync(target, JSON.stringify(archive));
+  rejectCLI(root, /archive integrity failure|Verification file size mismatch/);
+});
+
+test('unapproved history paths are rejected before any archive read', () => {
+  assert.throws(() => readHistory('../outside.md', '/nonexistent-root'), /Unapproved history path/);
 });

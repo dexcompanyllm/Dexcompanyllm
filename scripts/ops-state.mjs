@@ -1,9 +1,12 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { pathToFileURL } from 'node:url';
 
 export const BASE = '507331d82cc3016373d1e6d351b8f38f41fa4f98';
+export const PUBLIC_HISTORY_ARCHIVE = 'scripts/fixtures/ops-history-public.json';
+export const PUBLIC_HISTORY_SHA256 = '68879cd197a1b4a29d49363802a3650f5460bd75be12503087b98d6a955b00d1';
+const PUBLIC_HISTORY_BYTES = 244658;
 export const SNAPSHOT = '10_Projects/DexCompany-Ops/OPS_SNAPSHOT.json';
 export const FILES = Object.freeze([
   'CURRENT_STATE.md',
@@ -56,16 +59,76 @@ export function verify(s, file, actual, original) {
   if (!Buffer.isBuffer(actual) || !actual.equals(render(s, file, original))) throw new Error(`Document drift: ${file}`);
 }
 
-export function readHistory(file) {
-  if (!FILES.includes(file)) throw new Error('Unapproved history path');
-  return execFileSync('git', ['show', `${BASE}:${file}`], { maxBuffer: 4 * 1024 * 1024, stdio: ['ignore', 'pipe', 'pipe'] });
+function readRegular(root, file, expectedSize) {
+  const target = path.join(root, file);
+  let stat;
+  try {
+    stat = fs.lstatSync(target);
+    if (!stat.isFile() || fs.realpathSync(target) !== target) throw new Error();
+  } catch {
+    throw new Error(`Missing or nonregular verification file: ${file}`);
+  }
+  if (stat.size > 4 * 1024 * 1024 || (expectedSize !== undefined && stat.size !== expectedSize)) throw new Error(`Verification file size mismatch: ${file}`);
+  const raw = fs.readFileSync(target);
+  if (raw.length !== stat.size) throw new Error(`Verification file changed while reading: ${file}`);
+  return raw;
 }
 
-export function check() {
-  const s = validateSnapshot(JSON.parse(fs.readFileSync(SNAPSHOT, 'utf8')));
-  for (const file of FILES) verify(s, file, fs.readFileSync(file), readHistory(file));
-  console.log('PASS: eight current snapshots agree; original document bytes preserved; Windows remains Not Checked.');
+function exactKeys(value, keys) {
+  if (!value || typeof value !== 'object' || Array.isArray(value)
+    || Object.keys(value).length !== keys.length || !keys.every(key => Object.hasOwn(value, key))) throw new Error('Invalid public history archive schema');
+}
+
+export function loadPublicHistory(root = process.cwd()) {
+  root = fs.realpathSync(root);
+  // This reviewed pin is independent of the checked documents. Never regenerate
+  // the archive from current files, fall back to Git, or silently update the pin.
+  const raw = readRegular(root, PUBLIC_HISTORY_ARCHIVE, PUBLIC_HISTORY_BYTES);
+  if (createHash('sha256').update(raw).digest('hex') !== PUBLIC_HISTORY_SHA256) throw new Error('Public history archive integrity failure');
+  const archive = JSON.parse(raw.toString('utf8'));
+  exactKeys(archive, ['schemaVersion', 'kind', 'repository', 'originalSource', 'publicSource', 'documents']);
+  exactKeys(archive.originalSource, ['repository', 'commit']);
+  exactKeys(archive.publicSource, ['commit', 'tree', 'redactionCommit', 'redactionPr']);
+  if (archive.schemaVersion !== 1 || archive.kind !== 'approved-public-copy-history'
+    || archive.repository !== 'dexcompanyllm/Dexcompanyllm'
+    || archive.originalSource.repository !== 'ethanhee890-commits/dex-company-wiki'
+    || archive.originalSource.commit !== BASE
+    || archive.publicSource.commit !== '359e480d8a16cce53d8235ba7c6f6a706ba53199'
+    || archive.publicSource.tree !== 'a7534bb4b34e5a80e6e2881dfb8d0267d928b533'
+    || archive.publicSource.redactionCommit !== '74677096ce490cee3c4efbd71d53d3a9ecaf8657'
+    || archive.publicSource.redactionPr !== 4
+    || !Array.isArray(archive.documents) || archive.documents.length !== FILES.length) throw new Error('Invalid public history archive identity');
+  const history = new Map();
+  for (const [i, entry] of archive.documents.entries()) {
+    exactKeys(entry, ['path', 'sourceBlobSha', 'publicBlobSha', 'byteLength', 'sha256', 'redacted', 'base64']);
+    const redacted = entry.path === 'CURRENT_STATE.md';
+    if (entry.path !== FILES[i] || entry.redacted !== redacted
+      || !/^[a-f0-9]{40}$/.test(entry.sourceBlobSha) || !/^[a-f0-9]{40}$/.test(entry.publicBlobSha)
+      || !/^[a-f0-9]{64}$/.test(entry.sha256)
+      || !Number.isSafeInteger(entry.byteLength) || entry.byteLength < 1 || entry.byteLength > 4 * 1024 * 1024
+      || typeof entry.base64 !== 'string') throw new Error('Invalid public history document');
+    const bytes = Buffer.from(entry.base64, 'base64');
+    const blob = createHash('sha1').update(`blob ${bytes.length}\0`).update(bytes).digest('hex');
+    if (bytes.toString('base64') !== entry.base64 || bytes.length !== entry.byteLength
+      || createHash('sha256').update(bytes).digest('hex') !== entry.sha256 || blob !== entry.publicBlobSha
+      || (!redacted && blob !== entry.sourceBlobSha) || (redacted && blob === entry.sourceBlobSha)) throw new Error('Public history document integrity failure');
+    history.set(entry.path, bytes);
+  }
+  return history;
+}
+
+export function readHistory(file, root = process.cwd()) {
+  if (!FILES.includes(file)) throw new Error('Unapproved history path');
+  return loadPublicHistory(root).get(file);
+}
+
+export function check(root = process.cwd()) {
+  root = fs.realpathSync(root);
+  const s = validateSnapshot(JSON.parse(readRegular(root, SNAPSHOT).toString('utf8')));
+  const history = loadPublicHistory(root);
+  for (const file of FILES) verify(s, file, readRegular(root, file), history.get(file));
+  return 'PASS: eight current snapshots agree; approved public history preserved (seven original documents, one owner-approved redaction); Windows remains Not Checked.';
 }
 if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) {
-  try { check(); } catch (error) { console.error(error.message); process.exitCode = 1; }
+  try { console.log(check()); } catch (error) { console.error(error.message); process.exitCode = 1; }
 }
