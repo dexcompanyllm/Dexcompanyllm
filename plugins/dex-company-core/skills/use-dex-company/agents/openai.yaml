@@ -1,0 +1,3 @@
+interface:
+  display_name: "Use Dex Company"
+  short_description: "Load approved GitHub-first Dex context"

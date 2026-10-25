@@ -1,0 +1,159 @@
+{
+  "reviewedAt": "2026-10-23",
+  "taskId": "DEX-DESIGN-QUALITY-20260917",
+  "kind": "selected-document-adaptation",
+  "externalCodeIncluded": false,
+  "externalAssetsIncluded": false,
+  "sources": [
+    {
+      "id": "taste",
+      "repository": "Leonxlnx/taste-skill",
+      "revision": "6010f91a9935f1c167dfc500fb1a475681892e6b",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "skills/taste-skill/SKILL.md",
+          "blobSha": "433d92105c76671250013e0312d82cb413f552bc",
+          "sha256": "d955dae4ba8ab2d994f4bb06b4bf412a1d9875433a8597939c391f4bae91dd7a"
+        },
+        {
+          "path": "skills/taste-skill/references/app-screens.md",
+          "blobSha": "784439ed799484a98958764a5bf3ede2a1d25296",
+          "sha256": "55e937ec30de605b53a11310b446f328a3ce7403de24fff008920a00be1a5ed4"
+        },
+        {
+          "path": "skills/taste-skill/references/critique.md",
+          "blobSha": "1989a85c83232e86aec66baf733a843947392b37",
+          "sha256": "9c2f4392674530b3f02ac529fba53d82ab37b85f401c4c1989fbe98d6217f0b4"
+        },
+        {
+          "path": "LICENSE",
+          "blobSha": "48a2f6640b81ff8eca9ce7f6a96337692713ef5b",
+          "sha256": "4575a543ab88dad12ccea7d97e563d0bce5b448b06072e65d3264497dad326df"
+        }
+      ],
+      "adoptedScope": "App/page separation, domain content, honest data and rendered critique",
+      "excluded": "Executable tools, install steps, hooks, remote assets, provider routing, automatic authority, fixed aesthetic mandates",
+      "sourceReviewed": true,
+      "sourceApplied": "candidate-source",
+      "installed": "Not Checked",
+      "behaviorVerified": "Not Checked"
+    },
+    {
+      "id": "impeccable",
+      "repository": "pbakaus/impeccable",
+      "revision": "cf9ec0c3769283e5edee088dc61d039b039b7546",
+      "license": "Apache-2.0",
+      "files": [
+        {
+          "path": ".agents/skills/impeccable/reference/critique.md",
+          "blobSha": "07ae4a854ede894de3320f42e50743c1ab4681fb",
+          "sha256": "c210c9506877c6c8d88880a337fddd95d4315daf70ed6bc631ee6520481f1a0c"
+        },
+        {
+          "path": "LICENSE",
+          "blobSha": "bb3f6d23b1f8025514a62a12b51b47d73e3c9aa9",
+          "sha256": "02bb8c3b4e70190e3986c0404ad2fd8d639b4f534252d82379cc1b502b6d1812"
+        }
+      ],
+      "adoptedScope": "Contextual hierarchy, cognitive-load and task-recovery critique",
+      "excluded": "Executable tools, install steps, hooks, remote assets, provider routing, automatic authority, fixed aesthetic mandates",
+      "sourceReviewed": true,
+      "sourceApplied": "candidate-source",
+      "installed": "Not Checked",
+      "behaviorVerified": "Not Checked"
+    },
+    {
+      "id": "emil",
+      "repository": "emilkowalski/skills",
+      "revision": "2d228630ba1446365f614a108cb8252f1feda202",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "skills/emil-design-eng/SKILL.md",
+          "blobSha": "62ce902af8dd32c590ea7203e9ab2edb1d6ef81a",
+          "sha256": "ffbe68e6007fb42cb8149f089b400a1ca007d59ba23e8948e2be4476f3175939"
+        },
+        {
+          "path": "skills/review-animations/SKILL.md",
+          "blobSha": "577a64397267ce20960de2202950594d5bd6f9b6",
+          "sha256": "6ff590d29e436766135aa3d137be1fac2a867165c7257fc315b189361f1873af"
+        },
+        {
+          "path": "LICENSE",
+          "blobSha": "57b46f1fd11dc62351ea548104a88aa3f659c11b",
+          "sha256": "4ff5bdb7887ec1435c9cab0e8d1a7caee704d894d65c2a008ccc68b1cc2f260b"
+        }
+      ],
+      "adoptedScope": "Purpose/frequency/interruption-aware motion",
+      "excluded": "Executable tools, install steps, hooks, remote assets, provider routing, automatic authority, fixed aesthetic mandates",
+      "sourceReviewed": true,
+      "sourceApplied": "candidate-source",
+      "installed": "Not Checked",
+      "behaviorVerified": "Not Checked"
+    },
+    {
+      "id": "diagram",
+      "repository": "cathrynlavery/diagram-design",
+      "revision": "7a12007b5a4246894f342a2e52e78facbc62eca3",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "skills/diagram-design/SKILL.md",
+          "blobSha": "e6162989c378e596983548acb0ba4299c3ba475a",
+          "sha256": "1cad611bfe734dc967ce9c86f77d4e87470edf1922ff7ef01a89d6f36b037e1a"
+        },
+        {
+          "path": "skills/diagram-design/references/layout-budget.md",
+          "blobSha": "3f3239eb7cbef443f0eeace849664060ba364dad",
+          "sha256": "792a1f328bf3ae6e0584b87513afbdb0f7c6dc4c2bafc28a3986af2d16a285d8"
+        },
+        {
+          "path": "skills/diagram-design/references/style-guide.md",
+          "blobSha": "b6045a819a426cb71312e266b4e694e2940843f5",
+          "sha256": "4716fa1a4f4d31cf836e0b4363886aa7242657fb48c624e0b34c433179dc6673"
+        },
+        {
+          "path": "LICENSE",
+          "blobSha": "5270ecfc40942fc2da652a7a2f3e687fc6851ba3",
+          "sha256": "bb7e12e91fecef43024111123ff784cec6c485585561d8b552557c0173b3ed29"
+        }
+      ],
+      "adoptedScope": "Faithful relations, overview/detail and Korean label measurement",
+      "excluded": "Executable tools, install steps, hooks, remote assets, provider routing, automatic authority, fixed aesthetic mandates",
+      "sourceReviewed": true,
+      "sourceApplied": "candidate-source",
+      "installed": "Not Checked",
+      "behaviorVerified": "Not Checked"
+    },
+    {
+      "id": "ppt",
+      "repository": "hugohe3/ppt-master",
+      "revision": "622bf0148bca4f697b0184322c7e2aa2a04520a2",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "skills/ppt-master/SKILL.md",
+          "blobSha": "13b339e217b5398d158b37ca407aadc3083be9ef",
+          "sha256": "39594a07cd92e894bfc61242034c78128fd2dfd94081ba3fd9a60d65dad835d5"
+        },
+        {
+          "path": "skills/ppt-master/references/plan-core.md",
+          "blobSha": "8b521c2a90353ae28ef5edaa2ec994388826dc5c",
+          "sha256": "50e623b83de90cfd3f860496e8a9a0b289f8f3aeb1546152c61df37a84d64c8a"
+        },
+        {
+          "path": "skills/ppt-master/LICENSE",
+          "blobSha": "9c261c3d9a1d3249fa8f18611c950d719d288560",
+          "sha256": "80cefc234c1ec12a8cece4344f16300c634fa03df7891686fcf979e3828f0921"
+        }
+      ],
+      "adoptedScope": "Audience, reading mode, page purpose and editable report delivery",
+      "excluded": "Executable tools, install steps, hooks, remote assets, provider routing, automatic authority, fixed aesthetic mandates",
+      "sourceReviewed": true,
+      "sourceApplied": "candidate-source",
+      "installed": "Not Checked",
+      "behaviorVerified": "Not Checked"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design Quality"
+  short_description: "Improve app, web and report craft with verified evidence"
+  default_prompt: "Use $design-quality to improve this app, web or report design while preserving its approved direction and evidence gates."
