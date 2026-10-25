@@ -1,0 +1,8 @@
+{
+  "provider": "openai",
+  "authentication": "subscription-only",
+  "paidApiAllowed": false,
+  "automaticPaidFallback": false,
+  "connected": false,
+  "verificationStatus": "Not Checked"
+}

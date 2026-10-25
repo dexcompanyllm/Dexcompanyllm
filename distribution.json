@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "1.0",
+  "id": "dex-company-common-company-20261025",
+  "repository": "dexcompanyllm/Dexcompanyllm",
+  "scope": "common-only",
+  "privateSourceHistoryImported": false,
+  "projects": [],
+  "automationsEnabled": false,
+  "runtimeStatus": "source-only-not-configured",
+  "claudeStatus": "Not Checked"
+}

@@ -1,0 +1,116 @@
+{
+  "schemaVersion": "1.2",
+  "costPolicy": {
+    "mode": "subscription-only",
+    "paidApiAllowed": false,
+    "automaticPaidFallback": false,
+    "extraUsageAllowed": false
+  },
+  "providers": {
+    "openai": {
+      "enabled": true,
+      "authMode": "chatgpt-managed",
+      "worker": "codex-app-server",
+      "rejectEnvironmentVariables": [
+        "OPENAI_API_KEY"
+      ],
+      "modelCatalog": {
+        "source": "app-server-model-list",
+        "includeHidden": true,
+        "refreshAtWorkerConnect": true,
+        "unknownModelAction": "fail-closed",
+        "retirementMigration": "official-mapping-only-and-recorded",
+        "missingReplacementAction": "fail-closed"
+      },
+      "optimization": {
+        "policy": "plan-aware-plus-efficient",
+        "deriveWorkloadFromRiskWhenMissing": true,
+        "routine": {
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "low"
+        },
+        "standard": {
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "medium"
+        },
+        "complex": {
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "high"
+        },
+        "critical": {
+          "model": "gpt-6-astra",
+          "reasoningEffort": "medium"
+        },
+        "criticalHighRisk": {
+          "model": "gpt-6-astra",
+          "reasoningEffort": "high"
+        },
+        "maxOrUltraByDefault": false,
+        "duplicateWholeTaskAcrossModels": false,
+        "infrastructureFailureEscalatesModel": false,
+        "defaultProfile": "balanced",
+        "plusEfficient": {
+          "detectedPlanTypes": [
+            "plus",
+            "chatgpt-plus"
+          ],
+          "routine": {
+            "model": "gpt-5.6-luna",
+            "reasoningEffort": "low"
+          },
+          "standard": {
+            "model": "gpt-5.6-terra",
+            "reasoningEffort": "medium"
+          },
+          "complex": {
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "medium"
+          },
+          "critical": {
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "high"
+          },
+          "criticalHighRisk": {
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "high"
+          },
+          "reasoningValidationEscalation": {
+            "model": "gpt-6-astra",
+            "reasoningEffort": "medium"
+          },
+          "reasoningValidationEscalationHighRisk": {
+            "model": "gpt-6-astra",
+            "reasoningEffort": "high"
+          }
+        },
+        "standardSpeedOnly": true,
+        "contextPolicy": {
+          "sourceSelection": "minimum-required",
+          "reuseSuppliedEvidence": true,
+          "repeatUnchangedEvidenceFetch": false,
+          "fullRepositoryScanByDefault": false,
+          "deterministicChecksFirst": true
+        }
+      }
+    },
+    "anthropic": {
+      "enabled": true,
+      "authMode": "claude-subscription",
+      "worker": "claude-code",
+      "rejectEnvironmentVariables": [
+        "ANTHROPIC_API_KEY"
+      ],
+      "optimization": {
+        "planning": {
+          "modelClass": "strongest-reasoning-available"
+        },
+        "repository": {
+          "modelClass": "strongest-coding-available"
+        },
+        "review": {
+          "modelClass": "independent-review-capable"
+        }
+      }
+    }
+  }
+}

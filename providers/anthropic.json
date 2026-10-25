@@ -1,0 +1,9 @@
+{
+  "provider": "anthropic",
+  "surface": "company-claude",
+  "authentication": "existing-approved-company-account",
+  "paidApiAllowed": false,
+  "automaticPaidFallback": false,
+  "connected": false,
+  "verificationStatus": "Not Checked"
+}

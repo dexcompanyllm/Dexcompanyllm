@@ -1,89 +1,12 @@
-# Dex Company
+# Dex Company — 공통 업무 배포본
 
-Dex Company는 GitHub를 중심으로 여러 AI와 기기에서 같은 지식·상태·업무 흐름을 이어가는 개인 AI 업무 운영체계다.
+공통 지침·스킬·Runtime 소스만 관리해요. 개인 프로젝트·상태·작업 로그·개인 Git 이력은 이 배포에 포함하지 않아요. 공통 기준은 이 저장소의 검수된 main, 회사 프로젝트 자료는 각 비공개 저장소를 사용해요.
 
-## 모든 AI에서 같은 업무 체계
+시작: [CLAUDE.md](CLAUDE.md), [AI_CONTRACT.md](AI_CONTRACT.md), [회사 Claude 연결](docs/CLAUDE_SETUP.md).
 
-ChatGPT·Work·Codex·Claude·Claude Code·Gemini 등 모든 AI는 같은 Dex Company의 정책·지식·Task·품질 기준을 사용해 기획·디자인·리서치·문서 작성·개발·QA 등 모든 업무를 수행해요. AI 제품명이나 공급자별로 업무 역할을 고정하거나 독점 배정하지 않아요.
+- 공통 스킬 3개와 에이전트 메타데이터: plugins/dex-company-core
+- Runtime·Console·MCP·worker 소스: apps/, packages/, services/, workers/ (배포/설치/실제 연결 미검증)
+- 프로젝트 등록: 비공개 원본에서만 관리. 이 공개 배포본의 project catalog는 비어 있어요.
+- 자동화: 실행/재개/신규 등록 없음. paid API와 자동 유료 fallback 금지.
 
-역할은 현재 작업의 관점이며 도구·인증·권한의 실제 지원 여부와 구분해요. AI별 기능 차이는 실행 경로에서 처리하고 동일 Task·품질 기준·결과를 유지해요.
-
-## Source of Truth
-
-GitHub `main`의 승인된 최신 상태가 단일 기준정보다.
-
-```text
-PC / Tablet / Mobile
-        |
-        v
- dexcompany.app PWA
-        |
-        v
- Dex Orchestrator + MCP Gateway
-        |
-        +--> OpenAI adapter --> ChatGPT / Work / Codex
-        +--> Anthropic adapter --> Claude / Claude Code
-        +--> Future adapters
-        |
-        v
- GitHub Task Bus + Project Repositories
-```
-
-## 공식 구성요소
-
-- `dex-company-wiki`: 지식·정책·프로젝트 상태·Task/Result Packet
-- `dex-company-runtime`: Orchestrator, PWA, MCP Gateway, provider adapter, worker
-- `dexcompany.app`: PC·태블릿·모바일 공통 제어 화면
-- GitHub Task Bus: Issue, branch, PR, checkpoint, result, evidence
-- ChatGPT MCP app와 Claude remote MCP connector
-- subscription-first local/remote workers
-- QA/Watchdog
-
-## Obsidian 상태
-
-Obsidian은 Dex Company의 공식 구성요소가 아니다. 기존 `.obsidian/`과 관련 문서는 마이그레이션 증거와 개인 호환을 위해 남을 수 있지만 정상 작동 조건, Source of Truth 또는 필수 편집기가 아니다.
-
-## AI 작업 시작 순서
-
-1. `AI_CONTRACT.md`
-2. 공급자 진입 파일: `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`
-3. `CURRENT_STATE.md`
-4. 대상 프로젝트의 `PROJECT_CONFIG.md`, `CURRENT.md`, `SESSION_HANDOFF.md`
-5. 현재 Task Packet과 관련 SPEC·DECISIONS·SOURCES
-
-## 주요 구조
-
-- `00_Inbox/` — 캡처와 미분류 입력
-- `10_Projects/` — 프로젝트 상태, 결정, QA, task와 인수인계
-- `20_Codex_Handoff/` — 전역 운영·라우팅·품질·호환 정책
-- `30_Knowledge/LLM_Wiki/` — 출처 기반 재사용 지식
-- `40_References/` — 외부 참고자료
-- `70_Outputs/` — 도구 결과와 임시 산출물
-- `90_Archive/` — 완료·비활성 자료
-- `99_Templates/` — Task/Result와 문서 템플릿
-- `providers/` — 공급자별 최적화와 인증·플랫폼 제약
-
-## 핵심 원칙
-
-- GitHub-first
-- One Front Door
-- Provider 독립 + Provider별 최적화
-- Subscription-first, API 자동 과금 금지
-- Task Packet 기반 재개와 failover
-- Supervised autonomy
-- 검증 없는 완료 금지
-
-## 저장소 경계
-
-실제 PWA, MCP, Orchestrator와 worker 코드는 별도 `dex-company-runtime` 저장소에서 관리한다. 이 저장소에는 정책·상태·스키마·지식만 둔다.
-
-## 핵심 문서
-
-- `AI_CONTRACT.md` — 모든 AI와 런타임의 공통 계약
-- `CURRENT_STATE.md` — 전체 상태 대시보드
-- `DECISIONS.md` — 전역 의사결정 로그
-- `HANDOFF.md` — 다음 작업자를 위한 인수인계
-- `20_Codex_Handoff/DEX_COMPANY_V2_ARCHITECTURE.md` — 목표 아키텍처
-- `20_Codex_Handoff/DEXCOMPANY_APP_PRODUCT_SPEC.md` — PWA 제품 명세
-- `20_Codex_Handoff/MCP_GATEWAY_ARCHITECTURE.md` — 공통 MCP 구조
-- `20_Codex_Handoff/SUBSCRIPTION_FIRST_POLICY.md` — 무API 과금 정책
+이 저장소는 기존 공개 저장소의 현재 파일을 공통 배포본으로 갱신해요. 기존에 공개돼 있던 과거 commit은 이 작업으로 삭제하거나 비공개로 바꾸지 않아요. Claude 연결은 현재 main의 허용 파일만 선택하며 과거 개인 운영 자료를 가져오지 않아요.

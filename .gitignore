@@ -1,40 +1,9 @@
-# Secrets
+node_modules/
 .env
 .env.*
 !.env.example
 *.pem
 *.key
-*.ppk
-*.crt
-*.cer
-*.p12
-*.pfx
-*.jks
-*.keystore
-credentials.json
-secrets/
-
-# OS
-.DS_Store
-Thumbs.db
-
-# IDE
-.vscode/
-.idea/
-
-# Temporary files
-*.tmp
-*.temp
-*.bak
-*.swp
 *.log
-~$*
-
-# Local backups
-.codex-backups/
-
-# Obsidian local/workspace state
-.obsidian/workspace.json
-.obsidian/workspace-mobile.json
-.obsidian/cache
-.trash/
+private/
+output/

@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#111827" />
+  <meta name="description" content="Dex Company universal AI work console" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/styles.css" />
+  <title>Dex Company</title>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">ETHAN'S AI OPERATING SYSTEM</p>
+      <h1>Dex Company</h1>
+    </div>
+    <div class="top-actions">
+      <span id="connection-badge" class="badge">연결 확인 중</span>
+      <span id="identity-badge" class="badge hidden"></span>
+      <button id="login-button" class="ghost hidden" type="button">GitHub 로그인</button>
+      <button id="logout-button" class="ghost hidden" type="button">로그아웃</button>
+      <button id="settings-button" class="ghost hidden" type="button">비상 접근</button>
+    </div>
+  </header>
+
+  <nav class="journey" aria-label="개인 작업 흐름">
+    <ol><li>프로젝트 선택·등록</li><li>자료 연결</li><li>작업 요청</li><li>진행·결과 확인</li><li>다른 AI에서 이어가기</li></ol>
+    <p>하던 일의 목표와 기록을 한곳에서 이어가요.</p>
+  </nav>
+
+  <main class="layout">
+    <aside class="panel projects-panel">
+      <div class="panel-title"><h2>프로젝트</h2><button id="refresh-button" class="icon-button" type="button" aria-label="새로고침">↻</button></div>
+      <div id="projects" class="stack skeleton">불러오는 중</div>
+      <button id="new-project-button" class="secondary full-width" type="button">새 프로젝트 등록 요청</button>
+      <p class="field-help">승인된 프로젝트가 표시돼요. 새 프로젝트는 등록 요청을 검토한 뒤 목록에 추가돼요.</p>
+    </aside>
+
+    <section class="panel command-panel">
+      <div class="panel-title"><h2 id="request-title">새 작업</h2><span class="badge safe">구독 범위 내 사용</span></div>
+      <form id="task-form" class="task-form">
+        <div id="registration-fields" class="registration-fields hidden">
+          <label>새 프로젝트 이름<input id="new-project-name" maxlength="80" autocomplete="off" placeholder="예: My-Service" /></label>
+          <p class="field-help">한글·영문·숫자와 . _ -를 사용할 수 있어요. 아래에 목표를 적어 주세요. 검토용 등록 요청을 저장하며 승인 전에는 사용할 수 없어요.</p>
+          <button id="cancel-registration" class="secondary" type="button">기존 프로젝트 작업으로 돌아가기</button>
+        </div>
+        <label>프로젝트<select id="project-select" name="project"></select></label>
+        <label>목표<textarea id="objective" name="objective" rows="5" placeholder="예: 유산기부 PC 화면설계서를 기준으로 모바일 화면설계서를 만들고 검수해"></textarea></label>
+        <div class="two-col">
+          <label>우선순위<select id="priority" name="priority"><option>normal</option><option>high</option><option>urgent</option></select></label>
+          <label>역할<select id="role" name="role"><option value="auto">자동 선택</option><option value="planner">기획자</option><option value="developer">개발자</option><option value="qa">QA</option></select></label>
+        </div>
+        <label>완료 기준<textarea id="criteria" name="criteria" rows="3" placeholder="한 줄에 하나씩 입력"></textarea></label>
+        <label>참고 자료 링크 · 선택<textarea id="source-links" rows="3" maxlength="22000" placeholder="HTTPS 링크를 한 줄에 하나씩, 최대 10개 입력해 주세요" aria-describedby="source-help"></textarea></label>
+        <p id="source-help" class="field-help">링크를 작업에 함께 저장해요. 원문을 자동으로 가져오지는 않아요. 비밀번호·인증 토큰·임시 서명 링크는 넣지 마세요.</p>
+        <p id="write-notice" class="notice hidden" role="status"></p>
+        <div class="form-actions">
+          <button id="preview-button" class="secondary" type="button">처리 방법 확인</button>
+          <button id="create-button" class="primary" type="submit">Task 생성</button>
+        </div>
+      </form>
+      <div id="route-preview" class="preview hidden" role="status" aria-live="polite"></div>
+    </section>
+
+    <section class="panel tasks-panel">
+      <div class="panel-title"><h2>진행·결과함</h2><span id="task-count" class="badge">0</span></div>
+      <label class="task-filter-label">작업 보기<select id="task-filter"><option value="">모든 프로젝트</option></select></label>
+      <p class="field-help">최근 조회된 최대 50개 작업 중에서 표시해요. 이전 작업은 번호로 이어갈 수 있어요.</p>
+      <form id="task-lookup-form" class="task-lookup"><label class="sr-only" for="task-reference">기존 작업 번호 또는 Task ID</label><input id="task-reference" maxlength="128" placeholder="작업 번호 또는 Task ID" /><button class="secondary" type="submit">이어가기</button></form>
+      <div id="tasks" class="stack skeleton" aria-live="polite">불러오는 중</div>
+    </section>
+  </main>
+
+  <dialog id="settings-dialog">
+    <form class="dialog-card">
+      <h2>비상 접근</h2>
+      <p>GitHub OAuth를 복구할 때만 사용하는 임시 fallback입니다. 서버에서 명시적으로 허용한 경우에만 동작하며, 토큰은 현재 브라우저 탭의 sessionStorage에만 보관됩니다.</p>
+      <p id="connection-error" class="form-error hidden" role="alert" aria-live="polite"></p>
+      <label>Legacy access token<input id="access-token" type="password" autocomplete="off" /></label>
+      <label>Legacy admin token · 쓰기 복구 시에만<input id="admin-token" type="password" autocomplete="off" /></label>
+      <div class="form-actions"><button id="cancel-settings" class="secondary" type="button">취소</button><button id="save-settings" class="primary" type="button">저장 후 연결</button></div>
+    </form>
+  </dialog>
+
+  <dialog id="result-dialog">
+    <section class="dialog-card result-dialog-card">
+      <div class="panel-title"><h2 id="result-title">Task 결과</h2><button id="close-result" class="secondary" type="button">닫기</button></div>
+      <p id="result-meta" class="result-meta"></p>
+      <p id="result-summary" class="notice hidden"></p>
+      <pre id="result-content" class="result-content" tabindex="0">결과를 불러오는 중</pre>
+    </section>
+  </dialog>
+
+  <dialog id="handoff-dialog" aria-labelledby="handoff-title">
+    <section class="dialog-card">
+      <div class="panel-title"><h2 id="handoff-title">다른 AI에서 이어가기</h2><button id="close-handoff" class="secondary" type="button">닫기</button></div>
+      <p>이어갈 AI를 선택하면 같은 GitHub 작업에 인계를 저장해요. 연결된 AI가 Dex 인계함에서 목표와 최신 상태를 가져갈 수 있어요.</p>
+      <label>이어갈 AI<select id="handoff-target"><option value="">AI를 선택해 주세요</option><option value="claude">Claude · Claude Code</option><option value="chatgpt">ChatGPT · Codex</option><option value="gemini">Gemini 연결 환경</option></select></label>
+      <button id="publish-handoff" class="primary" type="button" disabled>GitHub로 자동 인계</button>
+      <p class="field-help">해당 AI에 Dex MCP 또는 GitHub 연결이 필요해요. GitHub 저장과 AI 수신·실행은 별도 상태예요. Gemini 웹의 저장소 가져오기는 자동 동기화되지 않아요.</p>
+      <p id="handoff-delivery" class="notice hidden" role="status" aria-live="polite"></p>
+      <button id="renew-handoff" class="secondary hidden" type="button">선택한 AI로 다시 인계</button>
+      <p id="handoff-message" role="status" aria-live="polite"></p>
+      <label>인계 내용 · 직접 전달도 가능해요<textarea id="handoff-text" rows="15" readonly></textarea></label>
+      <div class="form-actions"><button id="download-handoff" class="secondary" type="button" disabled>파일로 받기</button><button id="copy-handoff" class="primary" type="button" disabled>인계문 복사</button></div>
+    </section>
+  </dialog>
+
+  <template id="project-template"><button class="project-card" type="button"><strong></strong><span></span></button></template>
+  <template id="task-template"><article class="task-card"><div class="task-copy"><strong></strong><p></p></div><div class="task-actions"><button class="result-button secondary hidden" type="button">결과 보기</button><button class="handoff-button secondary" type="button">다른 AI에서 이어가기</button><a target="_blank" rel="noreferrer">GitHub</a></div></article></template>
+
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

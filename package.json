@@ -1,0 +1,40 @@
+{
+  "name": "dex-company-runtime",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "description": "Provider-portable Dex Company PWA, MCP gateway, orchestrator and subscription workers.",
+  "engines": {
+    "node": "24.x"
+  },
+  "scripts": {
+    "start": "node local-server.mjs",
+    "dev": "node --watch local-server.mjs",
+    "check": "node scripts/check.mjs",
+    "worker:preview": "node workers/runner.mjs preview",
+    "worker:bridge": "node workers/local-bridge-runner.mjs",
+    "broker:task": "node scripts/local-task-broker.mjs",
+    "worker:host-check": "node scripts/worker-host-check.mjs",
+    "codex:doctor": "node workers/openai-codex/src/doctor.mjs",
+    "codex:compatibility": "node workers/openai-codex/src/compatibility.mjs",
+    "codex:status": "node workers/openai-codex/src/status.mjs",
+    "claude:status": "node workers/anthropic-claude/src/adapter.mjs status",
+    "test": "node --test",
+    "smoke": "node scripts/smoke.mjs",
+    "smoke:vercel-adapter": "node scripts/vercel-adapter-smoke.mjs",
+    "rollback:check": "node scripts/rollback-check.mjs",
+    "audit:production": "node scripts/audit-production.mjs",
+    "ci": "npm run check && npm test && npm run smoke && npm run smoke:vercel-adapter && npm run rollback:check"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/ext-apps": "1.7.5",
+    "@modelcontextprotocol/sdk": "1.32.1",
+    "@octokit/auth-app": "8.3.0",
+    "@octokit/request": "10.0.15",
+    "cors": "2.8.6",
+    "dotenv": "17.4.2",
+    "express": "5.2.1",
+    "yaml": "2.9.0",
+    "zod": "4.4.3"
+  }
+}
