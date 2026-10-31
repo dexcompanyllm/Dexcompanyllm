@@ -533,15 +533,17 @@ export class GitHubStore {
       "DECISIONS.md",
       "QA_REPORT.md",
     ];
-    const documents = [];
-    for (const file of candidates) {
+    // These read-only documents are independent. Reuse the existing bounded
+    // mapper to overlap network waits while preserving candidate order.
+    const documents = await mapWithConcurrency(candidates, this.projectFetchConcurrency, async (file) => {
       try {
-        documents.push(await this.fetchDocument(`10_Projects/${project}/${file}`));
+        return await this.fetchDocument(`10_Projects/${project}/${file}`);
       } catch (error) {
         if (error.status !== 404) throw error;
+        return null;
       }
-    }
-    return { project, documents };
+    });
+    return { project, documents: documents.filter(document => document !== null) };
   }
 
   async search(query, limit = 10) {

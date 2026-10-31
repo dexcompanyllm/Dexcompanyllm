@@ -7,5 +7,10 @@
   "projects": [],
   "automationsEnabled": false,
   "runtimeStatus": "source-only-not-configured",
-  "claudeStatus": "Not Checked"
+  "claudeStatus": "Not Checked",
+  "lastCommonUpdate": "2026-10-31",
+  "sourceRevisions": {
+    "runtime": "d6981bdd6e160e1b8756395d214e5d0e887e7910",
+    "wiki": "ed64ceafe5f05bb4e0412e8257e99990fed96505"
+  }
 }
