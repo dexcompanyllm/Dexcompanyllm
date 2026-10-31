@@ -92,7 +92,7 @@ test("GitHub App auth creates one cached Octokit strategy and requests installat
       GITHUB_APP_ID: "123",
       GITHUB_APP_INSTALLATION_ID: "456",
       GITHUB_APP_PRIVATE_KEY_B64: TEST_PRIVATE_KEY_B64,
-      GITHUB_REPO: "dexcompanyllm/Dexcompanyllm",
+      GITHUB_REPO: "octo/example",
     },
     createAppAuth(options) {
       strategyCalls.push(options);
@@ -101,7 +101,7 @@ test("GitHub App auth creates one cached Octokit strategy and requests installat
         return {
           token: "installation-token",
           repositorySelection: "selected",
-          repositoryNames: ["dex-company-wiki"],
+          repositoryNames: ["example"],
           permissions: { contents: "read", metadata: "read", issues: "read" },
         };
       };
@@ -121,13 +121,13 @@ test("GitHub App auth creates one cached Octokit strategy and requests installat
     {
       type: "installation",
       installationId: 456,
-      repositoryNames: ["dex-company-wiki"],
+      repositoryNames: ["example"],
       permissions: { contents: "read", metadata: "read", issues: "read" },
     },
     {
       type: "installation",
       installationId: 456,
-      repositoryNames: ["dex-company-wiki"],
+      repositoryNames: ["example"],
       permissions: { contents: "read", metadata: "read", issues: "read" },
     },
   ]);
@@ -754,8 +754,8 @@ test("legacy requests keep their pre-change idempotency fingerprint", async () =
       : jsonResponse({number:90,html_url:"https://github.com/octo/example/issues/90",body:JSON.parse(init.body).body}),
   });
   const result = await store.createTaskIssue({task:{title:"Legacy definition"},execution:{idempotencyKey:"legacy-context-001"}});
-  // Golden obtained by running the pinned ddcb0dd baseline function.
-  assert.equal(observed,"pending:ozZw1okxlnWG69sWCYD5sMnn_MJOeFv0ZCnJG1woaXo");
+  // Golden reproduced on public distribution dca864f with its runtime.invalid source.
+  assert.equal(observed,"pending:2n3AVaOuzPAG-wjx1lTWKXculFm6kaT8QclyNNu80AQ");
   assert.equal(Object.hasOwn(result.packet,"inputs"),false);
   assert.equal(Object.hasOwn(result.packet,"validation"),false);
 });

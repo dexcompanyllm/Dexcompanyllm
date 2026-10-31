@@ -15,6 +15,8 @@ const WINDOWS_SHIM_EXTENSIONS = new Set([".cmd", ".bat", ".ps1"]);
 const WINDOWS_PATH_EXTENSIONS = [".exe", ".com", ".cmd", ".bat", ".ps1", ".js", ".mjs"];
 const CLAUDE_SUBSCRIPTION_AUTH_METHOD = "claude.ai";
 const CLAUDE_SUBSCRIPTION_TYPES = new Set(["pro", "max", "team", "enterprise"]);
+export const CLAUDE_STDOUT_LIMIT_BYTES = 64 * 1024 * 1024;
+export const CLAUDE_STDERR_LIMIT_BYTES = 1024 * 1024;
 
 function environmentValue(env, name) {
   const key = Object.keys(env).find(candidate => candidate.toLowerCase() === name.toLowerCase());
@@ -161,21 +163,52 @@ function claudeLaunchError(error) {
   return error;
 }
 
-function runProcess(args, { cwd = process.cwd(), input = null, timeoutMs = 30 * 60_000 } = {}) {
+export function runClaudeProcess(args, {
+  cwd = process.cwd(), input = null, timeoutMs = 30 * 60_000,
+  spawnProcess = spawnClaudeCli,
+  stdoutLimitBytes = CLAUDE_STDOUT_LIMIT_BYTES,
+  stderrLimitBytes = CLAUDE_STDERR_LIMIT_BYTES,
+} = {}) {
+  for (const [value, maximum] of [[stdoutLimitBytes, CLAUDE_STDOUT_LIMIT_BYTES], [stderrLimitBytes, CLAUDE_STDERR_LIMIT_BYTES]]) {
+    if (!Number.isSafeInteger(value) || value < 1 || value > maximum) throw new TypeError("Claude output limit must be within the transport byte bound.");
+  }
   return new Promise((resolve, reject) => {
-    const child = spawnClaudeCli(args, { cwd });
+    const child = spawnProcess(args, { cwd });
     let stdout = "";
     let stderr = "";
-    const timer = setTimeout(() => { child.kill(); reject(new Error("Claude worker timed out.")); }, timeoutMs);
+    let stdoutBytes = 0;
+    let stderrBytes = 0;
+    let settled = false;
+    const finish = (error, value) => {
+      if (settled) return;
+      settled = true;
+      clearTimeout(timer);
+      if (error) { stdout = ""; stderr = ""; reject(error); }
+      else resolve(value);
+    };
+    const stop = error => { finish(error); child.kill(); };
+    const timer = setTimeout(() => stop(new Error("Claude worker timed out.")), timeoutMs);
     child.stdout.setEncoding("utf8");
     child.stderr.setEncoding("utf8");
-    child.stdout.on("data", chunk => stdout += chunk);
-    child.stderr.on("data", chunk => stderr += redact(chunk));
-    child.on("error", error => { clearTimeout(timer); reject(claudeLaunchError(error)); });
-    child.on("exit", code => {
-      clearTimeout(timer);
-      if (code === 0) resolve({ stdout, stderr, code });
-      else reject(new Error(`Claude exited with code ${code}: ${stderr}`));
+    child.stdout.on("data", chunk => {
+      if (settled) return;
+      const bytes = Buffer.byteLength(chunk, "utf8");
+      if (stdoutBytes + bytes > stdoutLimitBytes) { stop(new Error(`Claude stdout exceeded ${stdoutLimitBytes} bytes; worker stop requested.`)); return; }
+      stdoutBytes += bytes;
+      stdout += chunk;
+    });
+    child.stderr.on("data", chunk => {
+      if (settled) return;
+      const bytes = Buffer.byteLength(chunk, "utf8");
+      if (stderrBytes + bytes > stderrLimitBytes) { stop(new Error(`Claude stderr exceeded ${stderrLimitBytes} bytes; worker stop requested.`)); return; }
+      stderrBytes += bytes;
+      stderr += redact(chunk);
+    });
+    child.on("error", error => finish(claudeLaunchError(error)));
+    child.on("close", code => {
+      if (settled) return;
+      if (code === 0) finish(null, { stdout, stderr, code });
+      else finish(new Error(`Claude exited with code ${code}: ${stderr}`));
     });
     if (input) child.stdin.write(input);
     child.stdin.end();
@@ -183,7 +216,7 @@ function runProcess(args, { cwd = process.cwd(), input = null, timeoutMs = 30 * 
 }
 
 export class ClaudeSubscriptionAdapter {
-  constructor({ runProcessImpl = runProcess, env = process.env } = {}) {
+  constructor({ runProcessImpl = runClaudeProcess, env = process.env } = {}) {
     this.runProcessImpl = runProcessImpl;
     this.env = env;
   }

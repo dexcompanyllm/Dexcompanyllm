@@ -27,6 +27,8 @@ const ASTRA_MODEL = "gpt-6-astra";
 const ASTRA_STABLE_CLI_MINIMUM = "0.153.0";
 const CLI_VERSION_TIMEOUT_MS = 10_000;
 const CLI_VERSION_OUTPUT_LIMIT_BYTES = 64 * 1024;
+export const CODEX_RPC_LINE_LIMIT_BYTES = 16 * 1024 * 1024;
+export const CODEX_FINAL_TEXT_LIMIT_BYTES = 64 * 1024 * 1024;
 
 function environmentValue(env, name) {
   const key = Object.keys(env).find(candidate => candidate.toLowerCase() === name.toLowerCase());
@@ -223,18 +225,25 @@ function codexLaunchError(error) {
   return error;
 }
 
-class JsonRpcProcess extends EventEmitter {
-  constructor(args) {
+export class JsonRpcProcess extends EventEmitter {
+  constructor(args, { spawnProcess = spawnCodexCli, lineLimitBytes = CODEX_RPC_LINE_LIMIT_BYTES } = {}) {
     super();
+    if (!Number.isSafeInteger(lineLimitBytes) || lineLimitBytes < 1 || lineLimitBytes > CODEX_RPC_LINE_LIMIT_BYTES) {
+      throw new TypeError("Codex RPC line limit must be within the transport byte bound.");
+    }
     this.args = args;
+    this.spawnProcess = spawnProcess;
+    this.lineLimitBytes = lineLimitBytes;
     this.nextId = 1;
     this.pending = new Map();
     this.buffer = "";
+    this.bufferBytes = 0;
+    this.failure = null;
     this.child = null;
   }
 
   async start() {
-    this.child = spawnCodexCli(this.args);
+    this.child = this.spawnProcess(this.args);
     this.child.stdout.setEncoding("utf8");
     this.child.stderr.setEncoding("utf8");
     this.child.stdout.on("data", chunk => this.#onData(chunk));
@@ -251,11 +260,30 @@ class JsonRpcProcess extends EventEmitter {
   }
 
   #onData(chunk) {
-    this.buffer += chunk;
-    while (this.buffer.includes("\n")) {
-      const index = this.buffer.indexOf("\n");
-      const line = this.buffer.slice(0, index).trim();
-      this.buffer = this.buffer.slice(index + 1);
+    if (this.failure) return;
+    let offset = 0;
+    while (offset < chunk.length) {
+      const index = chunk.indexOf("\n", offset);
+      const part = chunk.slice(offset, index < 0 ? chunk.length : index);
+      const partBytes = Buffer.byteLength(part, "utf8");
+      if (this.bufferBytes + partBytes > this.lineLimitBytes) {
+        const error = new Error(`Codex RPC line exceeded ${this.lineLimitBytes} bytes; App Server stop requested.`);
+        this.failure = error;
+        this.buffer = "";
+        this.bufferBytes = 0;
+        for (const { reject } of this.pending.values()) reject(error);
+        this.pending.clear();
+        this.emit("failure", error);
+        this.child?.kill();
+        return;
+      }
+      this.buffer += part;
+      this.bufferBytes += partBytes;
+      if (index < 0) return;
+      const line = this.buffer.trim();
+      this.buffer = "";
+      this.bufferBytes = 0;
+      offset = index + 1;
       if (!line) continue;
       let message;
       try { message = JSON.parse(line); } catch { this.emit("protocol-error", line); continue; }
@@ -277,6 +305,7 @@ class JsonRpcProcess extends EventEmitter {
   }
 
   request(method, params = {}) {
+    if (this.failure) return Promise.reject(this.failure);
     const id = this.nextId++;
     const promise = new Promise((resolve, reject) => this.pending.set(id, { resolve, reject }));
     this.child.stdin.write(`${JSON.stringify({ method, id, params })}\n`);
@@ -292,6 +321,9 @@ class JsonRpcProcess extends EventEmitter {
   }
 
   close() {
+    this.failure ??= new Error("Codex app-server was closed.");
+    this.buffer = "";
+    this.bufferBytes = 0;
     for (const { reject } of this.pending.values()) reject(new Error("Codex app-server was closed."));
     this.pending.clear();
     this.child?.kill();
@@ -507,7 +539,8 @@ export class CodexSubscriptionAdapter {
     }
     const threadId = started.thread.id;
     let finalText = "";
-    const events = [];
+    let finalTextBytes = 0;
+    let eventCount = 0;
     let settled = false;
     let resolveCompleted;
     let rejectCompleted;
@@ -521,6 +554,7 @@ export class CodexSubscriptionAdapter {
     const cleanup = () => {
       clearTimeout(timer);
       this.rpc?.off("notification", handler);
+      this.rpc?.off("failure", onFailure);
       signal?.removeEventListener?.("abort", abortListener);
     };
     const finish = (error, value) => {
@@ -541,13 +575,31 @@ export class CodexSubscriptionAdapter {
     };
     const handler = message => {
       if (message?.params?.threadId && message.params.threadId !== threadId) return;
-      events.push(message);
-      if (message.method === "item/agentMessage/delta") finalText += message.params?.delta ?? "";
+      eventCount += 1;
+      if (message.method === "item/agentMessage/delta") {
+        const delta = message.params?.delta ?? "";
+        const deltaBytes = Buffer.byteLength(delta, "utf8");
+        if (finalTextBytes + deltaBytes > CODEX_FINAL_TEXT_LIMIT_BYTES) {
+          interrupt("Codex final text exceeded the transport byte bound; App Server stop requested.");
+          return;
+        }
+        finalText += delta;
+        finalTextBytes += deltaBytes;
+      }
       if (message.method === "item/completed" && message.params?.item?.type === "agentMessage") {
-        finalText = message.params.item.text ?? finalText;
+        const text = message.params.item.text ?? finalText;
+        const textBytes = Buffer.byteLength(text, "utf8");
+        if (textBytes > CODEX_FINAL_TEXT_LIMIT_BYTES) {
+          interrupt("Codex final text exceeded the transport byte bound; App Server stop requested.");
+          return;
+        }
+        finalText = text;
+        finalTextBytes = textBytes;
       }
       if (message.method === "turn/completed") finish(null, message.params);
     };
+    const onFailure = error => finish(error);
+    this.rpc.on("failure", onFailure);
     this.rpc.on("notification", handler);
     timer = setTimeout(() => interrupt("Codex turn timed out and the App Server process was stopped."), remainingTimeoutMs);
     timer.unref?.();
@@ -574,7 +626,7 @@ export class CodexSubscriptionAdapter {
         threadId,
         turn,
         finalText,
-        eventCount: events.length,
+        eventCount,
         modelSelection,
         reasoningEffortSelection,
         executionPolicy,
