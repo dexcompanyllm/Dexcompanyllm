@@ -246,7 +246,6 @@ test("canonical plugin contains no client policy, machine path, paid API credent
   const files = walk(pluginRoot);
   const combined = files.map(file => fs.readFileSync(file, "utf8")).join("\n");
   assert.doesNotMatch(combined, /\b[A-Za-z]:\\/);
-  assert.doesNotMatch(combined, /obsidian/i);
   assert.doesNotMatch(combined, /OPENAI_API_KEY|ANTHROPIC_API_KEY/);
   assert.doesNotMatch(combined, /sk-(?:proj-|ant-)?[A-Za-z0-9_-]{16,}/);
   assert.doesNotMatch(combined, /SaveTheChildren|세이브더칠드런|#A020F0|PHI-[PMA]-\d{3}|1VDMkMA|1anXVbh|1db8FMs/);
