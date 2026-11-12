@@ -62,9 +62,11 @@ Do not create fabricated PASS records to make this command succeed. Keep separat
 
 ## Preserve and learn
 
+For an explicit request to update this adapted skill, follow `references/MAINTENANCE.md` and the source review linked from `references/SOURCE_PROVENANCE.json`. Compare the previously reviewed upstream revision, current Dex adaptation and newly pinned source. Preserve earlier provenance, record selective adoption and exclusions, and keep source review separate from installed behavior. Ordinary design tasks use the bundled references without fetching upstream.
+
 Keep the established file type, layout conventions, labels, links, IDs and unrelated edits. Screen specifications continue to use `create-screen-spec`; technical implementation notes and executable QA remain separate. Export to Figma as editable components/text only when requested or useful and available; a flat image import is not an editable design system.
 
 Keep the selected reference and its rights/provenance, token version, content fixtures, rendered output, defects, minimal change, checks and rollback in the project Task. Record observed improvement or `Not Measured`. Add a reusable rule only when the failure and repair justify it; do not promote every stylistic preference to a global ban.
 
-Finish with changed scope, evidence, PASS/FAIL/Not Checked, approval/install state and the minimum next action. Source preparation, deployment, installation, fresh-session invocation and real-device acceptance are distinct milestones.
+Finish with changed scope, evidence, PASS/FAIL/Not Checked, approval/install state and the minimum next action. Keep independently actionable defects separate, even when they affect the same screen or diagram. Source preparation, deployment, installation, fresh-session invocation and real-device acceptance are distinct milestones.
 

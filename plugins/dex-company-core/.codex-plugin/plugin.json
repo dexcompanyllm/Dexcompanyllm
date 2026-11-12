@@ -1,6 +1,6 @@
 {
   "name": "dex-company-core",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "GitHub-first operating skills for cross-domain work, device and AI continuity, verified learning, screen specifications, and evidence-based design quality.",
   "author": {
     "name": "Dex Company"
@@ -34,4 +34,3 @@
     ]
   }
 }
-

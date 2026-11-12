@@ -49,7 +49,7 @@ test("plugin manifest follows the strict Codex manifest contract", () => {
   ]);
   assert.deepEqual(Object.keys(manifest).filter(key => !allowed.has(key)), []);
   assert.equal(manifest.name, "dex-company-core");
-  assert.equal(manifest.version, "1.4.0");
+  assert.equal(manifest.version, "1.5.0");
   assert.match(manifest.description, /design quality/i);
   assert.ok(manifest.description.trim());
   assert.ok(manifest.author.name.trim());

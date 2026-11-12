@@ -4,6 +4,8 @@
 
 시작: [CLAUDE.md](CLAUDE.md), [AI_CONTRACT.md](AI_CONTRACT.md), [회사 Claude 연결](docs/CLAUDE_SETUP.md).
 
+공통 스킬: [수동 설치·갱신](docs/SKILL_INSTALLATION.md), [원본 비교와 유지관리](docs/SKILL_MAINTENANCE.md). 현재 플러그인 소스 버전은 1.5.0이며, 수동 설치용 marketplace 목록을 포함해요. 자동 설치·자동화·Runtime 배포는 활성화하지 않아요.
+
 - 공통 스킬 3개와 에이전트 메타데이터: plugins/dex-company-core
 - Runtime·Console·MCP·worker 소스: apps/, packages/, services/, workers/ (배포/설치/실제 연결 미검증)
 - 프로젝트 등록: 비공개 원본에서만 관리. 이 공개 배포본의 project catalog는 비어 있어요.

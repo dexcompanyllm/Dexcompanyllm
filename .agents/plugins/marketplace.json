@@ -1,0 +1,20 @@
+{
+  "name": "dex-company",
+  "interface": {
+    "displayName": "Dex Company"
+  },
+  "plugins": [
+    {
+      "name": "dex-company-core",
+      "source": {
+        "source": "local",
+        "path": "./plugins/dex-company-core"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
