@@ -68,5 +68,5 @@ Keep the established file type, layout conventions, labels, links, IDs and unrel
 
 Keep the selected reference and its rights/provenance, token version, content fixtures, rendered output, defects, minimal change, checks and rollback in the project Task. Record observed improvement or `Not Measured`. Add a reusable rule only when the failure and repair justify it; do not promote every stylistic preference to a global ban.
 
-Finish with changed scope, evidence, PASS/FAIL/Not Checked, approval/install state and the minimum next action. Source preparation, deployment, installation, fresh-session invocation and real-device acceptance are distinct milestones.
+Finish with changed scope, evidence, PASS/FAIL/Not Checked, approval/install state and the minimum next action. Keep independently actionable defects separate, even when they affect the same screen or diagram. Source preparation, deployment, installation, fresh-session invocation and real-device acceptance are distinct milestones.
 

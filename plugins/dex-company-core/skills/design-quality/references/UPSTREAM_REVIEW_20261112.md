@@ -2,6 +2,8 @@
 
 Task: `DEX-DESIGN-QUALITY-UPDATE-20261112`. Dex baseline: `90dfe999886048f1f39ba68759f9f965f1fa81b7`. Candidate plugin version: `1.4.1`.
 
+This record describes the first source-adaptation candidate. Subsequent 1.5.0 package, independent review, controlled smoke and install/discovery results are recorded in `RELEASE_VERIFICATION_20261112.md`; initial failures below remain historical results.
+
 This is a selective documentation update prepared for PR review. It does not establish complete upstream synchronization, installation, fresh-session invocation, rendering, device acceptance or measured improvement. The other two common skills are inventoried in `docs/SKILL_MAINTENANCE.md` in the source repository and are unchanged.
 
 ## Frozen inputs
